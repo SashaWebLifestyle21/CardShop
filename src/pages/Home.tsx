@@ -3,9 +3,10 @@ import Header from "../containers/Header/Header";
 import Title from "../components/common-components/Title/Title";
 import {useDispatch, useSelector} from "react-redux";
 import {useTypedSelector} from "../redux/hooks/useTypedSelector";
-import {getCards} from "../redux/actions/cardsActionCreator/cardsActionCreator";
+import {getCards, ICards} from "../redux/actions/cardsActionCreator/cardsActionCreator";
 import CardSection from "../containers/CardSection/CardSection";
 import Wrapper from "../components/common-components/Wrapper/Wrapper";
+import Loader from "../components/common-components/Loader/Loader";
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
     }, [])
     console.log('state ', cards)
 
+    const isCardsExist = cards && (cards as ICards[]).length > 0;
 
     return (
         <>
@@ -27,7 +29,8 @@ const Home = () => {
 
             <Wrapper>
                 <Title mb={'40'}>Our Books</Title>
-                <CardSection cards={cards} />
+                {isCardsExist ? <CardSection cards={cards} /> : <Loader/>}
+
             </Wrapper>
 
         </>
