@@ -4,6 +4,8 @@ import Title from "../components/common-components/Title/Title";
 import {useDispatch, useSelector} from "react-redux";
 import {useTypedSelector} from "../redux/hooks/useTypedSelector";
 import {getCards} from "../redux/actions/cardsActionCreator/cardsActionCreator";
+import CardSection from "../containers/CardSection/CardSection";
+import Wrapper from "../components/common-components/Wrapper/Wrapper";
 
 
 
@@ -21,11 +23,13 @@ const Home = () => {
 
     return (
         <>
-            <Header img={'../Images/headerback.jpg'} title={'Create your own stickers'} mb={'40'}/>
-            <Title>Our stickers</Title>
-            <div>
+            <Header img={'../Images/headerback.jpg'} title={'Create your own books'} mb={'40'}/>
 
-            </div>
+            <Wrapper>
+                <Title mb={'40'}>Our Books</Title>
+                <CardSection cards={cards} />
+            </Wrapper>
+
         </>
     )
 }

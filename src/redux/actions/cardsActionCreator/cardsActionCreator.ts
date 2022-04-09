@@ -21,6 +21,8 @@ export interface IAxiosResponse {
 export interface ICards {
     title: string,
     price: string
+    id: string
+    image: string
 }
 
 interface IGetCardsSuccessAction {
