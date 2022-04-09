@@ -8,7 +8,7 @@ interface IImage {
     className: string;
 }
 
-const Image = ({ src, alt, className, width, height }: IImage) => {
+const Image = ( { src, alt, className, width, height }: IImage) => {
     return (
         <img
             src={src}

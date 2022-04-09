@@ -8,7 +8,7 @@ const HoverText = styled.div`
   display: none;
   padding: 10px 23px;
   z-index: 3;
-  border: 1px solid ${themes.colors.white};
+  border: 1px solid ${props => props.theme.colors.white};
   border-radius: 5px;
   max-width: 161px;
   width: 100%;
@@ -20,7 +20,7 @@ const HoverText = styled.div`
 const CardHoverText: React.FC = () => {
     return (
         <HoverText className='addCard'>
-            <Text color={COLOR.white} weight={'600'} size={'20'}>Add to card</Text>
+            <Text color={ COLOR.white } weight={ 600 } size={ 20 }>Add to card</Text>
         </HoverText>
     );
 };

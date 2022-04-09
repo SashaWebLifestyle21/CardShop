@@ -17,12 +17,12 @@ const CardSectionWrapper = styled.div`
   margin-bottom: 20px;
 `
 
-const CardSection = ({cards}:ICardSection) => {
+const CardSection = ( { cards }: ICardSection) => {
     return (
         <CardSectionWrapper>
             {
-                cards.map(card => {
-                    return <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price}/>
+                cards.map( card => {
+                    return <Card key={ card.isbn13+card.price } image={ card.image } alt={ card.image } title={ card.title } price={ card.price }/>
                 })
             }
         </CardSectionWrapper>

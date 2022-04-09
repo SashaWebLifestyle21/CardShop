@@ -1,25 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { themes } from "../../../constants/themes";
 
 interface ITitle {
     children: string
-    width?: string
-    mb?: string
+    width?: number
+    mb?: number
 }
 
 const TITLE = styled.h2<ITitle>`
-  font-size: 36px;
+  font-size: ${props => props.theme.fontSize.s36};
   text-align: center;
-  font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
+  font-weight: ${props => props.theme.fontWeight.semiBold};
   width: ${props => props.width}px;
-  color: ${themes.colors.primary};
+  color: ${props => props.theme.colors.primary};
   margin: 0 auto;
-  margin-bottom: ${props => props.mb || '0'}px;
+  margin-bottom: ${props => props.mb || 0}px;
 `
 
-const Title = ({ children, width, mb }: ITitle) => {
+const Title = ( { children, width, mb }: ITitle) => {
     return (
         <TITLE width={ width } mb={ mb }>{ children }</TITLE>
     )

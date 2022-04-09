@@ -12,7 +12,6 @@ function App() {
           <Route element={ <Layout/> }>
               <Route path='/' element={ <Navigate replace to='/home' /> } />
               <Route path='/home' element={ <Home /> }/>
-
           </Route>
       </Routes>
     </Provider>

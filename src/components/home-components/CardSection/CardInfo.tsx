@@ -14,11 +14,11 @@ const CardInfoWrapper = styled.div`
   justify-content: space-between;;
 `
 
-const CardInfo = ({ title, price}:ICardInfo) => {
+const CardInfo = ( { title, price}: ICardInfo) => {
     return (
         <CardInfoWrapper>
-            <Text weight={'600'} size={'20'}>{title}</Text>
-            <Price>{price}</Price>
+            <Text weight={ 600 } size={ 20 }>{ title }</Text>
+            <Price>{ price }</Price>
         </CardInfoWrapper>
     );
 };

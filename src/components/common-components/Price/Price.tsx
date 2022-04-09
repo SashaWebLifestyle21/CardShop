@@ -7,13 +7,12 @@ interface IPrice{
 }
 
 const PriceWrapper = styled.p`
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: ${props => props.theme.fontWeight.semiBold};
+  font-size: ${props => props.theme.fontSize.s24};
   color: ${themes.colors.secondary};
 `
 
-const Price = ({ children }: IPrice) => {
+const Price = ( { children }: IPrice ) => {
     return (
         <PriceWrapper>{ children }</PriceWrapper>
     );

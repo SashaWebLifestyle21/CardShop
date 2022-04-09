@@ -5,7 +5,7 @@ interface IFlexBoxProps {
     alignItems?: string;
     justifyContent?: string;
     flexDirection?: string;
-    mb?: string
+    mb?: number
     children: any;
 }
 
@@ -13,7 +13,7 @@ interface IFlexBox {
     alignItems?: string;
     justifyContent?: string;
     flexDirection?: string;
-    mb?: string
+    mb?: number
 }
 
 const Flex = styled.div<IFlexBox>`

@@ -16,13 +16,13 @@ const LoaderWrapper = styled.div`
 position: relative;
   margin-top: 30px;
   
-  & .loader{
+  & div{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
   }
-  & .loader:before {
+  & div:before {
     position: absolute;
     content: '';
     top: 0%;
@@ -32,7 +32,7 @@ position: relative;
     border-radius: 500rem;
     border: 0.2em solid rgba(0, 0, 0, 0.1);
   }
-  & .loader:after {
+  & div:after {
     position: absolute;
     content: '';
     top: 0%;
@@ -48,8 +48,8 @@ position: relative;
     box-shadow: 0px 0px 0px 1px transparent;
   }
 
-  & .loader:before,
-  & .loader:after {
+  & div:before,
+  & div:after {
     width: 2.28571429rem;
     height: 2.28571429rem;
     margin: 0em;
@@ -59,7 +59,7 @@ position: relative;
 const Loader: React.FC = () => {
     return (
         <LoaderWrapper>
-            <div className='loader'/>
+            <div />
         </LoaderWrapper>
     );
 };

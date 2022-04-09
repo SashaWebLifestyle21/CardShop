@@ -4,27 +4,27 @@ import Icon from "../Icon/Icon";
 
 interface IIconsWrapper{
     icons: Array<any>
-    width?: string,
-    colGap?: string
+    width?: number,
+    colGap?: number
 }
 
 interface IIconsWrap{
-    width?: string,
-    colGap?: string
+    width?: number,
+    colGap?: number
 }
 
 const IconsWrap = styled.div<IIconsWrap>`
   display: flex;
   align-items: center;
-width: ${p => p.width}px;
-  column-gap: ${p => p.colGap || 20}px;
+  width: ${ p => p.width }px;
+  column-gap: ${ p => p.colGap || 20 }px;
 `
 
-const IconsWrapper = ({ icons, width, colGap }: IIconsWrapper) => {
+const IconsWrapper = ( { icons, width, colGap }: IIconsWrapper) => {
     return (
         <IconsWrap width={ width } colGap={ colGap }>
             { icons.map( icon => {
-                return <Icon key={ icon.id + icon.name } name={ icon.name } size={ '20px' } />
+                return <Icon key={ icon.id + icon.name } name={ icon.name } size={ 20 } />
             })}
         </IconsWrap>
     );

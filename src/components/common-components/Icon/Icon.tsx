@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 interface IIcon {
     name: string
-    size?: string
+    size?: number
     transform?: string
     color?: string
 }
@@ -15,8 +15,8 @@ const StyledSVGIcon = styled(ReactSVG)<IIcon>`
     ${({ size }) =>
     size &&
     css`
-        width: ${size};
-        height: ${size};
+        width: ${size}px;
+        height: ${size}px;
       `}
     ${({ transform }) =>
     transform &&

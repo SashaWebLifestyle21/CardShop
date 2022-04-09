@@ -9,7 +9,7 @@ const FooterInfoWrapper = styled.div``
 const FooterInfo = () => {
     return (
         <FooterInfoWrapper>
-            <Text size={ '14' } weight={ '600' } talign={ 'end' }>Follow us</Text>
+            <Text size={ 14 } weight={ 600 } talign={ 'end' }>Follow us</Text>
             <IconsWrapper icons={ iconsFooter }/>
         </FooterInfoWrapper>
     );
