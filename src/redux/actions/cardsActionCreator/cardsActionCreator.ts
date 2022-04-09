@@ -23,6 +23,7 @@ export interface ICards {
     price: string
     id: string
     image: string
+    isbn13: string
 }
 
 interface IGetCardsSuccessAction {

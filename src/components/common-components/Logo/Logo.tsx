@@ -2,10 +2,10 @@ import React from 'react';
 import Image from "../Image/Image";
 
 
-const HeaderLogo = () => {
+const Logo = () => {
     return (
        <Image src={'../Images/logo.png'} width={48} height={48}/>
     );
 };
 
-export default HeaderLogo;
+export default Logo;

@@ -1,6 +1,6 @@
 import React from 'react';
 import FlexBox from "../../components/common-components/FlexBox/FlexBox";
-import HeaderLogo from "../../components/common-components/Header/HeaderLogo";
+import Logo from "../../components/common-components/Logo/Logo";
 import IconsWrapper from "../../components/common-components/IconsWrapper/IconsWrapper";
 import {iconsHeader} from "../../constants/iconsHeader";
 import Wrapper from "../../components/common-components/Wrapper/Wrapper";
@@ -29,7 +29,7 @@ const Header = ({ img, title, mb}:IHeaderWrapperProp) => {
         <HeaderWrapper img={img} mb={mb}>
             <Wrapper>
                 <FlexBox justifyContent={'space-between'} mb={'70'}>
-                    <HeaderLogo />
+                    <Logo />
                     <IconsWrapper icons={iconsHeader} width={'100'} colGap={'20'}/>
                 </FlexBox>
                 <Title width={'150'} mb={'140'}>{title}</Title>

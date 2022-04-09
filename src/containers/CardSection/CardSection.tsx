@@ -15,6 +15,7 @@ const CardSectionWrapper = styled.div`
   column-gap: 64px;
   row-gap: 80px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 `
 
 const CardSection = ({cards}:ICardSection) => {
@@ -22,7 +23,7 @@ const CardSection = ({cards}:ICardSection) => {
         <CardSectionWrapper>
             {
                 cards.map(card => {
-                    return <Card key={card.title+card.price} image={card.image} alt={card.image} title={card.title} price={card.price}/>
+                    return <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price}/>
                 })
             }
         </CardSectionWrapper>
