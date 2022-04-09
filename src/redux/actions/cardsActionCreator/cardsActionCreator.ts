@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import { ActionCreator } from "redux";
-import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS } from "../actions";
+import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS, HREF_API } from "../actions";
 
 export interface IError{
     code: number,
@@ -53,11 +53,9 @@ export const getCards = () => {
         dispatch(getCardsStarted()); // диспатчится обычный синхронный экшн, который означает
         // начало отправки запроса на сервер
         axios
-            .get<IAxiosResponse>(`https://api.itbook.store/1.0/search/%7Bword-to-search%7D/%7Bpage-number-for-pagination%7D`)// https://jsonplaceholder.typicode.com/todos \\\\https://api.itbook.store/1.0/search/%7Bword-to-search%7D/%7Bpage-number-for-pagination%7D
+            .get<IAxiosResponse>( HREF_API )
             .then(res => {
-                // const mappedResponse = res.data.map(item => ({ ...item }));
                 const mappedResponse = res.data.books.map(item => ({...item, title: item.title, price: item.price}))
-                console.log('mappedRes', mappedResponse)
                 dispatch(getCardsSuccess(mappedResponse));
             })
             .catch(err => {
