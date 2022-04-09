@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {themes} from "../../../constants/themes";
+import { themes } from "../../../constants/themes";
 
 interface ITitle {
     children: string
@@ -19,11 +19,9 @@ const TITLE = styled.h2<ITitle>`
   margin-bottom: ${props => props.mb || '0'}px;
 `
 
-
-
-const Title = ({children, width, mb}: ITitle) => {
+const Title = ({ children, width, mb }: ITitle) => {
     return (
-        <TITLE width={width} mb={mb}>{children}</TITLE>
+        <TITLE width={ width } mb={ mb }>{ children }</TITLE>
     )
 }
 

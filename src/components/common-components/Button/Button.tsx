@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import {themes} from "../../../constants/themes";
+import { themes } from "../../../constants/themes";
 
 interface IButton {
     borderColor?: string
@@ -19,7 +19,6 @@ interface IButtonProps {
 }
 
 const BUTTON = styled.button<IButton>`
-//padding: 12px 31.5px;
   padding: ${props => props.ptb || 12}px ${props => props.prl || 20}px;
   display: block;
   border: none;
@@ -30,10 +29,10 @@ const BUTTON = styled.button<IButton>`
   cursor: pointer;
 `
 
-const Button = ({children,onClick, borderColor, backgroundColor, color}: IButtonProps) => {
+const Button = ({ children,onClick, borderColor, backgroundColor, color }: IButtonProps) => {
     return (
-        <BUTTON borderColor={borderColor} backgroundColor={backgroundColor} color={color} onClick={onClick}>
-            {children}
+        <BUTTON borderColor={ borderColor } backgroundColor={ backgroundColor } color={ color } onClick={ onClick }>
+            { children }
         </BUTTON>
     );
 };

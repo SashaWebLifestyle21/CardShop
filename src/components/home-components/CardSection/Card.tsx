@@ -45,7 +45,6 @@ position: relative;
     z-index: 2;
   }
 `
-
 const Card = ({image, alt, price, title }: ICard) => {
     return (
         <CardWrapper>

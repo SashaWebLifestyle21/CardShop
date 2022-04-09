@@ -2,7 +2,6 @@ import React from 'react';
 import styled, {keyframes} from "styled-components";
 import { themes } from '../../../constants/themes';
 
-
 const loaderAnimation = keyframes`
   from {
     transform: rotate(0deg);
@@ -57,7 +56,7 @@ position: relative;
   }
 `
 
-const Loader = () => {
+const Loader: React.FC = () => {
     return (
         <LoaderWrapper>
             <div className='loader'/>

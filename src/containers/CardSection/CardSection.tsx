@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import Card from '../../components/home-components/CardSection/Card';
-import {ICards} from "../../redux/actions/cardsActionCreator/cardsActionCreator";
-
+import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
 
 interface ICardSection {
     cards: ICards[]

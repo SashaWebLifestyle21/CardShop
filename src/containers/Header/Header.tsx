@@ -2,7 +2,7 @@ import React from 'react';
 import FlexBox from "../../components/common-components/FlexBox/FlexBox";
 import Logo from "../../components/common-components/Logo/Logo";
 import IconsWrapper from "../../components/common-components/IconsWrapper/IconsWrapper";
-import {iconsHeader} from "../../constants/iconsHeader";
+import { iconsHeader } from "../../constants/iconsHeader";
 import Wrapper from "../../components/common-components/Wrapper/Wrapper";
 import styled from "styled-components";
 import Title from "../../components/common-components/Title/Title";

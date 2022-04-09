@@ -1,6 +1,5 @@
-import React, {ReactChildren} from "react";
+import React from "react";
 import styled from "styled-components";
-
 
 interface IFlexBoxProps {
     alignItems?: string;
@@ -9,6 +8,7 @@ interface IFlexBoxProps {
     mb?: string
     children: any;
 }
+
 interface IFlexBox {
     alignItems?: string;
     justifyContent?: string;
@@ -24,16 +24,15 @@ const Flex = styled.div<IFlexBox>`
   margin-bottom: ${p => p.mb || 20}px;
 `;
 
-
-const FlexBox = ({alignItems, flexDirection, justifyContent, children, mb}: IFlexBoxProps) => {
+const FlexBox = ({ alignItems, flexDirection, justifyContent, children, mb }: IFlexBoxProps) => {
     return(
         <Flex
-            alignItems={alignItems}
-            flexDirection={flexDirection}
-            justifyContent={justifyContent}
-            mb={mb}
+            alignItems={ alignItems }
+            flexDirection={ flexDirection }
+            justifyContent={ justifyContent }
+            mb={ mb }
         >
-            {children}
+            { children }
         </Flex>
 )
 }

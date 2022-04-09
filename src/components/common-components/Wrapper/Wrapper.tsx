@@ -17,10 +17,9 @@ padding: 16px;
   margin: 0 auto;
 `
 
-
-const Wrapper = ({children, width}: IWrapperProps) => {
+const Wrapper = ({ children, width }: IWrapperProps) => {
     return (
-        <WrapperBlock width={width}>{children}</WrapperBlock>
+        <WrapperBlock width={ width }>{ children }</WrapperBlock>
     )
 }
 

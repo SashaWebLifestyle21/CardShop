@@ -25,5 +25,4 @@ const store = configureStore({}); // здесь задается изначал�
 
 export type Store = typeof store;
 export type AppDispatch = Store['dispatch']
-
 export default store;

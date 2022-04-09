@@ -1,7 +1,5 @@
-import {GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE } from "../../actions/actions";
-import {ICards, IError, TCardActionTypes} from "../../actions/cardsActionCreator/cardsActionCreator";
-
-
+import { GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE } from "../../actions/actions";
+import { ICards, IError, TCardActionTypes } from "../../actions/cardsActionCreator/cardsActionCreator";
 
 interface IInitialState{
     cards: ICards[],
@@ -25,7 +23,6 @@ const cardsReducer =(state = initialState, { payload, type }: TCardActionTypes):
             }
         case GET_CARDS_STARTED:
             return {
-
                 ...state, isLoading: true
             }
         case GET_CARDS_FAILURE:

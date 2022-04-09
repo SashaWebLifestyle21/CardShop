@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import { themes } from '../../../constants/themes';
 import Icon from "../../common-components/Icon/Icon";
-import {COLOR} from "../../../constants/color-constants";
 
 const CardLikeWrapper =styled.div`
   content: '';

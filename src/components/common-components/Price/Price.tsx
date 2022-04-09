@@ -13,9 +13,9 @@ const PriceWrapper = styled.p`
   color: ${themes.colors.secondary};
 `
 
-const Price = ({children}: IPrice) => {
+const Price = ({ children }: IPrice) => {
     return (
-        <PriceWrapper>{children}</PriceWrapper>
+        <PriceWrapper>{ children }</PriceWrapper>
     );
 };
 

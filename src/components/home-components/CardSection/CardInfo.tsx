@@ -3,13 +3,12 @@ import styled from "styled-components";
 import Text from "../../common-components/Text/Text";
 import Price from "../../common-components/Price/Price";
 
-
 interface ICardInfo{
     title: string
     price: string
 }
 
-const CardInfoWrapper =styled.div`
+const CardInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;;
