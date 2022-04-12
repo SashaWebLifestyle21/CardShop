@@ -2,27 +2,24 @@ import React from 'react';
 import styled from "styled-components";
 import Card from '../../components/home-components/CardSection/Card';
 import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
+import { Flex } from "../../components/common-components/FlexBox/FlexBox";
 
 interface ICardSection {
     cards: ICards[]
 }
 
-const CardSectionWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const CardSectionWrapper = styled(Flex)`
   column-gap: 64px;
   row-gap: 80px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
 `
 
-const CardSection = ( { cards }: ICardSection) => {
+const CardSection = ({ cards }: ICardSection) => {
     return (
-        <CardSectionWrapper>
+        <CardSectionWrapper justifyContent={'center'} mb={120}>
             {
                 cards.map( card => {
-                    return <Card key={ card.isbn13+card.price } image={ card.image } alt={ card.image } title={ card.title } price={ card.price }/>
+                    return <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price} />
                 })
             }
         </CardSectionWrapper>

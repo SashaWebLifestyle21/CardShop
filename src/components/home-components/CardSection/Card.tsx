@@ -5,7 +5,6 @@ import Image from "../../common-components/Image/Image";
 import CardInfo from "./CardInfo";
 import CardHoverText from "./CardHoverText";
 
-
 interface ICard{
     image: string
     alt?:string
@@ -14,7 +13,7 @@ interface ICard{
 }
 
 const CardWrapper = styled.div`
-position: relative;
+  position: relative;
   max-width: 310px;
   width: 100%;
   height: 400px;
@@ -44,13 +43,14 @@ position: relative;
     z-index: 2;
   }
 `
-const Card = ( { image, alt, price, title }: ICard) => {
+
+const Card = ({ image, alt, price, title }: ICard) => {
     return (
         <CardWrapper>
             <CardHoverText/>
-            <Image width={ 288 } height={ 288 } src={ image } alt={ alt }/>
+            <Image width={288} height={288} src={image} alt={alt}/>
             <CardLike />
-            <CardInfo title={ title } price={ price }/>
+            <CardInfo title={title} price={price}/>
         </CardWrapper>
     );
 };

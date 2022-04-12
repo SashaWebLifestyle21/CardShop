@@ -19,20 +19,20 @@ interface IHeaderWrapper {
 }
 
 const HeaderWrapper = styled.div<IHeaderWrapper>`
-    background: url( ${ p => p.img } );
+    background: url( ${ p => p.img });
     margin-bottom: ${ p => p.mb }px;
 `
 
 
-const Header = ( { img, title, mb }:IHeaderWrapperProp) => {
+const Header = ({ img, title, mb }: IHeaderWrapperProp) => {
     return (
-        <HeaderWrapper img={ img } mb={ mb }>
+        <HeaderWrapper img={img} mb={mb}>
             <Wrapper>
-                <FlexBox justifyContent={'space-between'} mb={ 70 }>
+                <FlexBox justifyContent={'space-between'} mb={70}>
                     <Logo />
-                    <IconsWrapper icons={ iconsHeader } width={ 100 } colGap={ 20 }/>
+                    <IconsWrapper icons={iconsHeader} width={100} colGap={20} />
                 </FlexBox>
-                <Title width={ 150 } mb={ 140 }>{ title }</Title>
+                <Title width={150} mb={140}>{title}</Title>
             </Wrapper>
         </HeaderWrapper>
     );

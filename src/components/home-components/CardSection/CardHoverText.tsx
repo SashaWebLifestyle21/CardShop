@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import { themes } from "../../../constants/themes";
 import { COLOR } from "../../../constants/color-constants";
 import Text from "../../common-components/Text/Text";
 
@@ -20,7 +19,7 @@ const HoverText = styled.div`
 const CardHoverText: React.FC = () => {
     return (
         <HoverText className='addCard'>
-            <Text color={ COLOR.white } weight={ 600 } size={ 20 }>Add to card</Text>
+            <Text color={COLOR.white} weight={600} size={20}>Add to card</Text>
         </HoverText>
     );
 };

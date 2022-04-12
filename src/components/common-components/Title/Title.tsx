@@ -17,9 +17,9 @@ const TITLE = styled.h2<ITitle>`
   margin-bottom: ${props => props.mb || 0}px;
 `
 
-const Title = ( { children, width, mb }: ITitle) => {
+const Title = ({ children, width, mb }: ITitle) => {
     return (
-        <TITLE width={ width } mb={ mb }>{ children }</TITLE>
+        <TITLE width={width} mb={mb}>{children}</TITLE>
     )
 }
 

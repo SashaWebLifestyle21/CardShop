@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Icon from "../../common-components/Icon/Icon";
 
-const CardLikeWrapper =styled.div`
+const CardLikeWrapper = styled.div`
   content: '';
   position: absolute;
   top: 16px;
@@ -16,7 +16,7 @@ const CardLikeWrapper =styled.div`
 const CardLike: React.FC = () => {
     return (
         <CardLikeWrapper>
-            <Icon name={ 'like' }/>
+            <Icon name={'like'} />
         </CardLikeWrapper>
     );
 };

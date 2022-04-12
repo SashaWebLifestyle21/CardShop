@@ -19,9 +19,9 @@ const TEXT = styled.p<IText>`
   transition: color .3s linear;
 `
 
-const Text = ( { children, size, weight, talign, color, hover }: IText) => {
+const Text = ({ children, size, weight, talign, color, hover }: IText) => {
     return (
-        <TEXT size={ size } weight={ weight } talign={ talign } color={ color } hover={ hover }>{ children }</TEXT>
+        <TEXT size={size} weight={weight} talign={talign} color={color} hover={hover}>{children}</TEXT>
     )
 }
 

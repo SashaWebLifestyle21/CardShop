@@ -1,23 +1,23 @@
 import React from 'react';
-import styled from "styled-components";
 import Text from "../../common-components/Text/Text";
 import Price from "../../common-components/Price/Price";
+import Wrapper from "../../common-components/Wrapper/Wrapper";
+import FlexBox, {Flex} from "../../common-components/FlexBox/FlexBox";
+import styled from "styled-components";
 
 interface ICardInfo{
     title: string
     price: string
 }
 
-const CardInfoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;;
+const CardInfoWrapper = styled(Flex)`
+padding: 5px;
 `
 
-const CardInfo = ( { title, price}: ICardInfo) => {
+const CardInfo = ({ title, price}: ICardInfo) => {
     return (
-        <CardInfoWrapper>
-            <Text weight={ 600 } size={ 20 }>{ title }</Text>
+        <CardInfoWrapper justifyContent={'space-between'}>
+            <Text weight={600} size={20}>{title}</Text>
             <Price>{ price }</Price>
         </CardInfoWrapper>
     );

@@ -8,7 +8,7 @@ const Layout: React.FC = () => {
             <Outlet/>
             <Footer/>
         </>
-    );
+    )
 };
 
 export default Layout;

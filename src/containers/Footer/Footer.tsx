@@ -12,17 +12,17 @@ const FooterWrapper = styled.div`
   padding-bottom: 24px;
 `
 
-const Footer = () => {
+const Footer: React.FC = () => {
     return (
         <FooterWrapper>
             <Wrapper>
-                <FlexBox alignItems={ 'centre' } justifyContent={ 'space-between' }>
+                <FlexBox justifyContent={'space-between'}>
                     <Logo />
-                    <FooterInfo/>
+                    <FooterInfo />
                 </FlexBox>
             </Wrapper>
         </FooterWrapper>
-    );
+    )
 };
 
 export default Footer;

@@ -29,10 +29,10 @@ const BUTTON = styled.button<IButton>`
   cursor: pointer;
 `
 
-const Button = ({ children,onClick, borderColor, backgroundColor, color }: IButtonProps) => {
+const Button = ({ children, onClick, borderColor, backgroundColor, color }: IButtonProps) => {
     return (
-        <BUTTON borderColor={ borderColor } backgroundColor={ backgroundColor } color={ color } onClick={ onClick }>
-            { children }
+        <BUTTON borderColor={borderColor} backgroundColor={backgroundColor} color={color} onClick={onClick}>
+            {children}
         </BUTTON>
     );
 };

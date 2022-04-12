@@ -53,7 +53,7 @@ export const getCards = () => {
         dispatch(getCardsStarted()); // диспатчится обычный синхронный экшн, который означает
         // начало отправки запроса на сервер
         axios
-            .get<IAxiosResponse>( HREF_API )
+            .get<IAxiosResponse>(HREF_API)
             .then(res => {
                 const mappedResponse = res.data.books.map(item => ({...item, title: item.title, price: item.price}))
                 dispatch(getCardsSuccess(mappedResponse));

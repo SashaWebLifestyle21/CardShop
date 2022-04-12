@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { themes } from "./constants/themes";
+import { Provider } from "react-redux";
+import store from "./redux/store/store";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -16,22 +17,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
-  
-  
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
-}
 `
 ReactDOM.render(
     <ThemeProvider theme={themes}>
         <GlobalStyle/>
-        <React.StrictMode>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </React.StrictMode>,
+        <Provider store={store}>
+            <React.StrictMode>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </React.StrictMode>
+        </Provider>
     </ThemeProvider>,
     document.getElementById('root')
 );
