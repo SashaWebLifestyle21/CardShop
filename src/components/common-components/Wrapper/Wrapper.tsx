@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 interface IWrapperProps{
-    children: any
+    children: React.ReactNode
     width?: number
     justifyContent?: TWrapperjustifyContentTypes
     padding?: number

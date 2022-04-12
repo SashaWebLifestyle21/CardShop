@@ -1,8 +1,7 @@
 import React from 'react';
 import Text from "../../common-components/Text/Text";
 import Price from "../../common-components/Price/Price";
-import Wrapper from "../../common-components/Wrapper/Wrapper";
-import FlexBox, {Flex} from "../../common-components/FlexBox/FlexBox";
+import { Flex } from "../../common-components/FlexBox/FlexBox";
 import styled from "styled-components";
 
 interface ICardInfo{

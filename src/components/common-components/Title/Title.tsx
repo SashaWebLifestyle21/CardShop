@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 interface ITitle {
-    children: string
+    children: React.ReactNode
     width?: number
     mb?: number
 }
 
 const TITLE = styled.h2<ITitle>`
-  font-size: ${props => props.theme.fontSize.s36};
+  font-size: 36px;
   text-align: center;
   font-weight: ${props => props.theme.fontWeight.semiBold};
   width: ${props => props.width}px;

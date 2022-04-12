@@ -11,7 +11,7 @@ interface IButton {
 }
 
 interface IButtonProps {
-    children: any
+    children: React.ReactNode
     onClick?: any
     borderColor?: string
     backgroundColor?: string

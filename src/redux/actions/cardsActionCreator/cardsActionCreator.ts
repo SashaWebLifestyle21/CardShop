@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import { ActionCreator } from "redux";
-import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS, HREF_API } from "../actions";
+import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS } from "../actions";
+import { HREF_API } from "../../../constants/href-api";
 
 export interface IError{
     code: number,

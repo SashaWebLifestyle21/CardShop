@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { themes } from "../../../constants/themes";
 
 interface IText {
-    children: string
+    children: React.ReactNode
     size?: number
     weight?: number
     talign?: string

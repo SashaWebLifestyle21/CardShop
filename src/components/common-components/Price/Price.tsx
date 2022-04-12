@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { themes } from '../../../constants/themes';
 
 interface IPrice{
-    children: string
+    children: React.ReactNode
 }
 
 const PriceWrapper = styled.p`
   font-weight: ${props => props.theme.fontWeight.semiBold};
-  font-size: ${props => props.theme.fontSize.s24};
+  font-size: 24px;
   color: ${themes.colors.secondary};
 `
 

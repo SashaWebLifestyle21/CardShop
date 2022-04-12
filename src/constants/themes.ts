@@ -18,16 +18,6 @@ export const themes = {
         semiBold: 600,
         bold: 700
     },
-    fontSize: {
-        s12: 12+'px',
-        s14: 14+'px',
-        s16: 16+'px',
-        s18: 18+'px',
-        s20: 20+'px',
-        s24: 24+'px',
-        s36: 36+'px',
-        s40: 40+'px'
-    },
     media: {
         phone: '(max-width: 600px)', // до 600px это телефон
         tabletPortrait: '(max-width: 900px)', // 600-900
