@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
+import { BOX } from '../../common-components/Box/Box';
 import Icon from "../../common-components/Icon/Icon";
 
-const CardLikeWrapper = styled.div`
+const CardLikeWrapper = styled(BOX)`
   content: '';
   position: absolute;
   top: 16px;

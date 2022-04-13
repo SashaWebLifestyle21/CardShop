@@ -17,7 +17,7 @@ const CardInfo = ({ title, price}: ICardInfo) => {
     return (
         <CardInfoWrapper justifyContent={'space-between'}>
             <Text weight={600} size={20}>{title}</Text>
-            <Price>{ price }</Price>
+            <Price>{price}</Price>
         </CardInfoWrapper>
     );
 };

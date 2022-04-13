@@ -6,9 +6,9 @@ import Layout from "./components/common-components/Layout/Layout";
 function App() {
   return (
       <Routes>
-          <Route element={ <Layout /> }>
-              <Route path='/' element={ <Navigate replace to='/home' /> } />
-              <Route path='/home' element={ <Home /> } />
+          <Route element={<Layout />}>
+              <Route path='/' element={<Navigate replace to='/home' />} />
+              <Route path='/home' element={<Home />} />
           </Route>
       </Routes>
   )

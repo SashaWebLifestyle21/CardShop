@@ -4,6 +4,7 @@ import CardLike from "./CardLike";
 import Image from "../../common-components/Image/Image";
 import CardInfo from "./CardInfo";
 import CardHoverText from "./CardHoverText";
+import {WrapperBlock} from "../../common-components/Wrapper/Wrapper";
 
 interface ICard{
     image: string
@@ -12,10 +13,8 @@ interface ICard{
     price: string
 }
 
-const CardWrapper = styled.div`
+const CardWrapper = styled(WrapperBlock)`
   position: relative;
-  max-width: 310px;
-  width: 100%;
   height: 400px;
   cursor: pointer;
   background-color: transparent;
@@ -46,7 +45,7 @@ const CardWrapper = styled.div`
 
 const Card = ({ image, alt, price, title }: ICard) => {
     return (
-        <CardWrapper>
+        <CardWrapper width={310}>
             <CardHoverText/>
             <Image width={288} height={288} src={image} alt={alt}/>
             <CardLike />

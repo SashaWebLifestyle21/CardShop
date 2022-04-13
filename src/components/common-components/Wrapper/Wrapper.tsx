@@ -1,42 +1,33 @@
 import React from "react";
 import styled from 'styled-components';
+import { BOX } from "../Box/Box";
 
 interface IWrapperProps{
     children: React.ReactNode
     width?: number
-    justifyContent?: TWrapperjustifyContentTypes
     padding?: number
+    margin?: string
 }
-
-type TWrapperjustifyContentTypes =
-    | "start"
-    | "center"
-    | "space-between"
-    | "space-around"
-    | "space-evenly";
 
 interface IWrapper{
     width?: number
-    justifyContent?: TWrapperjustifyContentTypes
     padding?: number
+    margin?: string
 }
 
-const WrapperBlock = styled.div<IWrapper>`
+export const WrapperBlock = styled(BOX)<IWrapper>`
   padding: ${props => props.padding || 16}px;
   max-width: ${props => props.width || 1232}px;
   width: 100%;
-  margin: 0 auto;
-  display: block;
-  align-items: center;
-  justify-content: ${props => props.justifyContent || 'start'};
+  margin: ${props => props.margin || '0 auto'};
 `
 
-const Wrapper = ({ children, width, justifyContent, padding }: IWrapperProps) => {
+const Wrapper = ({ children, width, padding, margin }: IWrapperProps) => {
     return (
         <WrapperBlock
             width={width}
-            justifyContent={justifyContent}
             padding={padding}
+            margin={margin}
         >
             {children}
         </WrapperBlock>

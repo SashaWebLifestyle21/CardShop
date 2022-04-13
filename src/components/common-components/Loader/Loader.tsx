@@ -1,7 +1,6 @@
 import React from 'react';
-import styled, {keyframes} from "styled-components";
-import { themes } from '../../../constants/themes';
-import LoaderChild from "./LoaderChild";
+import styled, { keyframes } from "styled-components";
+import { BOX } from '../Box/Box';
 
 const loaderAnimation = keyframes`
   from {
@@ -13,7 +12,7 @@ const loaderAnimation = keyframes`
   }
 `
 
-const LoaderWrapper = styled.div`
+const LoaderWrapper = styled(BOX)`
 position: relative;
   margin-top: 30px;
   
@@ -43,7 +42,7 @@ position: relative;
     animation: ${loaderAnimation} 0.6s linear;
     animation-iteration-count: infinite;
     border-radius: 500rem;
-    border-color: ${themes.colors.secondary} transparent transparent;
+    border-color: ${props => props.theme.colors.secondary} transparent transparent;
     border-style: solid;
     border-width: 0.2em;
     box-shadow: 0px 0px 0px 1px transparent;
@@ -60,7 +59,7 @@ position: relative;
 const Loader: React.FC = () => {
     return (
         <LoaderWrapper>
-            <LoaderChild />
+            <BOX />
         </LoaderWrapper>
     );
 };

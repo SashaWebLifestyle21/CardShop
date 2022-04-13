@@ -3,7 +3,7 @@ import Header from "../containers/Header/Header";
 import Title from "../components/common-components/Title/Title";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
-import { getCards, ICards } from "../redux/actions/cardsActionCreator/cardsActionCreator";
+import { getCards } from "../redux/actions/cardsActionCreator/cardsActionCreator";
 import CardSection from "../containers/CardSection/CardSection";
 import Wrapper from "../components/common-components/Wrapper/Wrapper";
 import Loader from "../components/common-components/Loader/Loader";
