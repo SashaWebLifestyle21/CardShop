@@ -4,7 +4,7 @@ import CardLike from "./CardLike";
 import Image from "../../common-components/Image/Image";
 import CardInfo from "./CardInfo";
 import CardHoverText from "./CardHoverText";
-import {WrapperBlock} from "../../common-components/Wrapper/Wrapper";
+import { Wrapper } from "../../common-components/Wrapper/Wrapper";
 
 interface ICard{
     image: string
@@ -13,7 +13,7 @@ interface ICard{
     price: string
 }
 
-const CardWrapper = styled(WrapperBlock)`
+const CardWrapper = styled(Wrapper)`
   position: relative;
   height: 400px;
   cursor: pointer;
@@ -45,7 +45,7 @@ const CardWrapper = styled(WrapperBlock)`
 
 const Card = ({ image, alt, price, title }: ICard) => {
     return (
-        <CardWrapper width={310}>
+        <CardWrapper width={310} directWidth>
             <CardHoverText/>
             <Image width={288} height={288} src={image} alt={alt}/>
             <CardLike />
