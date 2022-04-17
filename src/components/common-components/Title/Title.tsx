@@ -7,7 +7,7 @@ interface ITitle {
     mb?: number
 }
 
-const TITLE = styled.h2<ITitle>`
+export const Title = styled.h2<ITitle>`
   font-size: 36px;
   text-align: center;
   font-weight: ${props => props.theme.fontWeight.semiBold};
@@ -16,11 +16,3 @@ const TITLE = styled.h2<ITitle>`
   margin: 0 auto;
   margin-bottom: ${props => props.mb || 0}px;
 `
-
-const Title = ({ children, width, mb }: ITitle) => {
-    return (
-        <TITLE width={width} mb={mb}>{children}</TITLE>
-    )
-}
-
-export default Title

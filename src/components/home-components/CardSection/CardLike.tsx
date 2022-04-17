@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from "styled-components";
-import { BOX } from '../../common-components/Box/Box';
+import { Box } from '../../common-components/Box/Box';
 import Icon from "../../common-components/Icon/Icon";
 
-const CardLikeWrapper = styled(BOX)`
+const CardLikeWrapper = styled(Box)`
   content: '';
   position: absolute;
   top: 16px;
   right: 16px;
   cursor: pointer;
-  &hover{
+  &:hover{
     color: ${props => props.theme.colors.secondary};
   }
 `
 
 const CardLike: React.FC = () => {
     return (
-        <CardLikeWrapper>
+        <CardLikeWrapper width={16}>
             <Icon name={'like'} />
         </CardLikeWrapper>
     );

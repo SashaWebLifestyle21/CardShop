@@ -2,13 +2,13 @@ import React from 'react';
 import styled from "styled-components";
 import Card from '../../components/home-components/CardSection/Card';
 import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
-import { Flex } from "../../components/common-components/FlexBox/FlexBox";
+import { FlexBox } from "../../components/common-components/FlexBox/FlexBox";
 
 interface ICardSection {
     cards: ICards[]
 }
 
-const CardSectionWrapper = styled(Flex)`
+const CardSectionWrapper = styled(FlexBox)`
   column-gap: 64px;
   row-gap: 80px;
   flex-wrap: wrap;

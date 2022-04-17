@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "../containers/Header/Header";
-import Title from "../components/common-components/Title/Title";
+import { Title } from "../components/common-components/Title/Title";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
 import { getCards } from "../redux/actions/cardsActionCreator/cardsActionCreator";
@@ -14,15 +14,15 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         dispatch(getCards())
-    }, [])
+    },[])
 
     return (
         <>
-            <Header img={'../Images/headerback.jpg'} title={'Create your own books'} mb={40} />
+            <Header img={'../Images/headerback.jpg'} title={'Create your own books'} />
             <Wrapper directWidth>
                 <Title mb={40}>Our Books</Title>
                 {error && <Title>{error}</Title>}
-                {isLoading ? <Loader/> : <CardSection cards={cards} />}
+                {isLoading ? <Loader /> : <CardSection cards={cards} />}
             </Wrapper>
         </>
     )

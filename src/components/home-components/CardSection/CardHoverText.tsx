@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import { COLOR } from "../../../constants/color-constants";
-import { BOX } from '../../common-components/Box/Box';
-import Text from "../../common-components/Text/Text";
+import { Box } from '../../common-components/Box/Box';
+import { Text } from "../../common-components/Text/Text";
 
-const HoverText = styled(BOX)`
+const HoverText = styled(Box)`
   display: none;
   padding: 10px 23px;
   z-index: 3;

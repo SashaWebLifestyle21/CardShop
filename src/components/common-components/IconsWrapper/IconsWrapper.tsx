@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Icon from "../Icon/Icon";
-import { Flex, IFlexBox } from "../FlexBox/FlexBox";
+import { FlexBox, IFlexBox } from "../FlexBox/FlexBox";
 
 interface IIconsWrapper{
     icons: Array<any>
@@ -13,7 +13,7 @@ interface IIconsWrap extends IFlexBox{
     colGap?: number
 }
 
-const IconsWrap = styled(Flex)<IIconsWrap>`
+const IconsWrap = styled(FlexBox)<IIconsWrap>`
   column-gap: ${props => props.colGap || 20}px;
   width: ${props => props.width}px;
 `

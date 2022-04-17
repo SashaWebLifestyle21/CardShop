@@ -57,7 +57,7 @@ export const getCards = () => {
             .get<IAxiosResponse>(HREF_API)
             .then(res => {
                 const mappedResponse = res.data.books.map(item => ({...item, title: item.title, price: item.price}))
-                dispatch(getCardsSuccess(mappedResponse));
+                    dispatch(getCardsSuccess(mappedResponse));
             })
             .catch(err => {
                 dispatch(getCardsFailure(err.message));

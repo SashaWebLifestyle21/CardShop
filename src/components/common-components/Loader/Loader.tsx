@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from "styled-components";
-import { BOX } from '../Box/Box';
+import { Box } from "../Box/Box";
+import { Wrapper } from "../Wrapper/Wrapper";
 
 const loaderAnimation = keyframes`
   from {
@@ -11,18 +12,12 @@ const loaderAnimation = keyframes`
     transform: rotate(360deg);
   }
 `
-
-const LoaderWrapper = styled(BOX)`
-position: relative;
-  margin-top: 30px;
-  
-  & :first-child{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  & :first-child:before {
+const LoaderW = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  &:before {
     position: absolute;
     content: '';
     top: 0%;
@@ -32,7 +27,7 @@ position: relative;
     border-radius: 500rem;
     border: 0.2em solid rgba(0, 0, 0, 0.1);
   }
-  & :first-child:after {
+  &:after {
     position: absolute;
     content: '';
     top: 0%;
@@ -48,8 +43,8 @@ position: relative;
     box-shadow: 0px 0px 0px 1px transparent;
   }
 
-  & :first-child:before,
-  & :first-child:after {
+  &:before,
+  &:after {
     width: 2.28571429rem;
     height: 2.28571429rem;
     margin: 0em;
@@ -58,9 +53,9 @@ position: relative;
 
 const Loader: React.FC = () => {
     return (
-        <LoaderWrapper>
-            <BOX />
-        </LoaderWrapper>
+        <Wrapper position={'relative'} marginTop={30}>
+            <LoaderW width={30} height={30} />
+        </Wrapper>
     );
 };
 

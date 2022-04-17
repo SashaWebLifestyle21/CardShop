@@ -10,15 +10,7 @@ interface IButton {
     prl?: string
 }
 
-interface IButtonProps {
-    children: React.ReactNode
-    onClick?: any
-    borderColor?: string
-    backgroundColor?: string
-    color?: string
-}
-
-const BUTTON = styled.button<IButton>`
+export const Button = styled.button<IButton>`
   padding: ${props => props.ptb || 12}px ${props => props.prl || 20}px;
   display: block;
   border: none;
@@ -28,13 +20,3 @@ const BUTTON = styled.button<IButton>`
   border-radius: 5px;
   cursor: pointer;
 `
-
-const Button = ({ children, onClick, borderColor, backgroundColor, color }: IButtonProps) => {
-    return (
-        <BUTTON borderColor={borderColor} backgroundColor={backgroundColor} color={color} onClick={onClick}>
-            {children}
-        </BUTTON>
-    );
-};
-
-export default Button;
