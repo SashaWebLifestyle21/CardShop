@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import {themes} from "../../../constants/themes";
+import { themes } from "../../../constants/themes";
 
 interface IButton {
     borderColor?: string
@@ -8,18 +8,13 @@ interface IButton {
     color?: string
     ptb?: string
     prl?: string
+    marginTop?: number
+    marginBottom?: number
+    marginLeft?: number
+    marginRight?: number
 }
 
-interface IButtonProps {
-    children: any
-    onClick?: any
-    borderColor?: string
-    backgroundColor?: string
-    color?: string
-}
-
-const BUTTON = styled.button<IButton>`
-//padding: 12px 31.5px;
+export const Button = styled.button<IButton>`
   padding: ${props => props.ptb || 12}px ${props => props.prl || 20}px;
   display: block;
   border: none;
@@ -28,14 +23,8 @@ const BUTTON = styled.button<IButton>`
   background-color: ${props => props.backgroundColor || 'transparent'};
   border-radius: 5px;
   cursor: pointer;
+  margin-top: ${props => props.marginTop || 0}px;
+  margin-bottom: ${props => props.marginBottom || 0}px;
+  margin-left: ${props => props.marginLeft || 0}px;
+  margin-right: ${props => props.marginRight || 0}px;
 `
-
-const Button = ({children,onClick, borderColor, backgroundColor, color}: IButtonProps) => {
-    return (
-        <BUTTON borderColor={borderColor} backgroundColor={backgroundColor} color={color} onClick={onClick}>
-            {children}
-        </BUTTON>
-    );
-};
-
-export default Button;

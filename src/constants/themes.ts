@@ -13,11 +13,16 @@ export const themes = {
         moreDarkSecondary: '#55112B',
         footer: '#EBEBEB'
     },
+    fontWeight: {
+        regular: 400,
+        semiBold: 600,
+        bold: 700
+    },
     media: {
-        phone: '(max-width: 600px)', // до 600px это телефон
-        tabletPortrait: '(max-width: 900px)', // 600-900
-        tabletLandscape: '(max-width: 1200px)', // 900-1200,
-        desktop: '(max-width: 1800)', // 1200-1800,
-        bigDesktop: '(max-width: 2400px)' // 1800-2400
+        phone: '(max-width: 600px)',
+        tabletPortrait: '(max-width: 900px)',
+        tabletLandscape: '(max-width: 1200px)',
+        desktop: '(max-width: 1800)',
+        bigDesktop: '(max-width: 2400px)'
     }
 }

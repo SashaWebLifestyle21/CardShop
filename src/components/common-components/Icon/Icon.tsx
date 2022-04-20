@@ -2,10 +2,9 @@ import React from "react";
 import { ReactSVG } from "react-svg";
 import styled, { css } from "styled-components";
 
-
 interface IIcon {
     name: string
-    size?: string
+    size?: number
     transform?: string
     color?: string
 }
@@ -16,8 +15,8 @@ const StyledSVGIcon = styled(ReactSVG)<IIcon>`
     ${({ size }) =>
     size &&
     css`
-        width: ${size};
-        height: ${size};
+        width: ${size}px;
+        height: ${size}px;
       `}
     ${({ transform }) =>
     transform &&
@@ -35,7 +34,7 @@ const StyledSVGIcon = styled(ReactSVG)<IIcon>`
   cursor: pointer;
 `;
 
-const Icon = ({name, color,size, transform}: IIcon) => {
+const Icon = ({ name, color,size, transform }: IIcon) => {
     return (
         <StyledSVGIcon
             src={`/Icons/${name}.svg`}
