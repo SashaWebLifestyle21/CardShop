@@ -3,7 +3,7 @@ import { FlexBox } from "../../common-components/FlexBox/FlexBox";
 import { Price } from "../../common-components/Price/Price";
 import { Text } from "../../common-components/Text/Text";
 
-interface ICardInfo{
+interface ICardInfo {
     title: string
     price: string
 }

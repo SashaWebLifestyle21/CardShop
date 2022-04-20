@@ -1,11 +1,15 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { COLOR } from "../../../constants/color-constants";
 import { Box } from '../../common-components/Box/Box';
 import { Text } from "../../common-components/Text/Text";
 
-const HoverText = styled(Box)`
-  display: none;
+interface ICardHoverTextProps {
+    isHovered?: boolean
+}
+
+const HoverText = styled(Box)<ICardHoverTextProps>`
+  visibility: hidden;
   padding: 10px 23px;
   z-index: 3;
   border: 1px solid ${props => props.theme.colors.white};
@@ -16,10 +20,16 @@ const HoverText = styled(Box)`
   top: 62%;
   left: 50%;
   transform: translateX(-50%);
+  
+  ${props => props.isHovered && css`
+    visibility: visible;
+    background-color: ${props => props.theme.colors.primary};
+  `}
 `
-const CardHoverText: React.FC = () => {
+
+const CardHoverText = ({ isHovered }: ICardHoverTextProps) => {
     return (
-        <HoverText className='addCard'>
+        <HoverText isHovered={isHovered}>
             <Text color={COLOR.white} weight={600} size={20}>Add to card</Text>
         </HoverText>
     );

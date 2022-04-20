@@ -4,12 +4,12 @@ import { ActionCreator } from "redux";
 import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS } from "../actions";
 import { HREF_API } from "../../../constants/href-api";
 
-export interface IError{
+export interface IError {
     code: number,
     message: string
 }
 
-interface IBooks{
+interface IBooks {
     title: string,
     price: string
 }
@@ -46,13 +46,11 @@ interface IGetCardsFailureAction {
 export type TCardActionTypes =
      IGetCardsSuccessAction
     | IGetCardsStartedAction
-    | IGetCardsFailureAction; // объединение экшнов, относящихся
-// к одной логической области
+    | IGetCardsFailureAction;
 
 export const getCards = () => {
     return (dispatch: Dispatch<TCardActionTypes>) => {
-        dispatch(getCardsStarted()); // диспатчится обычный синхронный экшн, который означает
-        // начало отправки запроса на сервер
+        dispatch(getCardsStarted());
         axios
             .get<IAxiosResponse>(HREF_API)
             .then(res => {

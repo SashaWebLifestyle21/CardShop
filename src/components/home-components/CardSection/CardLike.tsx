@@ -9,7 +9,7 @@ const CardLikeWrapper = styled(Box)`
   top: 16px;
   right: 16px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: ${props => props.theme.colors.secondary};
   }
 `

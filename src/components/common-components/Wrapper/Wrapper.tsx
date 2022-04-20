@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box } from "../Box/Box";
 
-interface IWrapper{
+interface IWrapper {
     width?: number
     padding?: number
     marginTop?: number

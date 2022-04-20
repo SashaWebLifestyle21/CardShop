@@ -2,7 +2,7 @@ import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
 import { createStore, compose, applyMiddleware } from 'redux';
 
-const composeEnhancers = // для подключения redux dev tools если приложение находится в dev mode и на стороне клиента
+const composeEnhancers =
     process.env.NODE_ENV !== 'production' &&
     typeof window === 'object' &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -12,16 +12,15 @@ const enhancer = composeEnhancers(
     applyMiddleware(thunk),
 );
 
-const configureStore = (preloadedState: any) => ( // возвращает улучшенную (обновленную функцию) createStore
-    // то есть configureStore является функцией высшего порядка
+const configureStore = (preloadedState: any) => (
     createStore(
-        rootReducer, // rootReducer - точка сбора всех reducers приложения
-        preloadedState, // изначальное значение store
-        enhancer, // для подключения redux dev tools к нашему store и при этом для использования redux thunk
+        rootReducer,
+        preloadedState,
+        enhancer,
     )
 );
 
-const store = configureStore({}); // здесь задается изначальное значение store - {}
+const store = configureStore({});
 
 export type Store = typeof store;
 export type AppDispatch = Store['dispatch']

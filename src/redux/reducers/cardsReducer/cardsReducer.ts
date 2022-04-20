@@ -1,7 +1,7 @@
 import { GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE } from "../../actions/actions";
 import { ICards, IError, TCardActionTypes } from "../../actions/cardsActionCreator/cardsActionCreator";
 
-interface IInitialState{
+interface IInitialState {
     cards: ICards[],
     isLoading: boolean,
     error: IError | null
@@ -13,7 +13,7 @@ const initialState = {
     error: null
 }
 
-const cardsReducer =(state = initialState, { payload, type }: TCardActionTypes): IInitialState => {
+const cardsReducer =(state = initialState,{ payload, type }: TCardActionTypes): IInitialState => {
     switch (type){
         case GET_CARDS_SUCCESS:
             return {

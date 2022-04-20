@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Icon from "../Icon/Icon";
-import { FlexBox, IFlexBox } from "../FlexBox/FlexBox";
+import { FlexBox } from "../FlexBox/FlexBox";
 
 interface IIconsWrapper{
     icons: Array<any>
@@ -8,7 +8,7 @@ interface IIconsWrapper{
     colGap?: number
 }
 
-interface IIconsWrap extends IFlexBox{
+interface IIconsWrap {
     width?: number,
     colGap?: number
 }

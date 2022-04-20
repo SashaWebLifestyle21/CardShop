@@ -12,6 +12,7 @@ interface IBox {
     paddingBottom?: number
     paddingLeft?: number
     paddingRight?: number
+    isHovered?: boolean
 }
 
 export const Box = styled.div<IBox>`
