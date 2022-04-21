@@ -18,7 +18,7 @@ const cardsReducer =(state = initialState,{ payload, type }: TCardActionTypes): 
         case GET_CARDS_SUCCESS:
             return {
                 ...state, cards: [
-                    ...payload
+                    ...payload as ICards[]
                 ], isLoading: false
             }
         case GET_CARDS_STARTED:

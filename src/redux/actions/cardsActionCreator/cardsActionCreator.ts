@@ -1,21 +1,23 @@
 import axios from "axios";
-import { Dispatch } from "react";
 import { ActionCreator } from "redux";
-import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS } from "../actions";
+import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS, ADD_ASYNC_CARD } from "../actions";
 import { HREF_API } from "../../../constants/href-api";
+import { IAxiosResponse } from "../../sagas/cardsSagas/cardsSagas";
 
 export interface IError {
     code: number,
     message: string
 }
 
-interface IBooks {
+export interface IBooks {
     title: string,
     price: string
 }
 
-export interface IAxiosResponse {
-    books: IBooks[]
+
+interface IAddAsyncCardAction {
+    type: typeof ADD_ASYNC_CARD;
+    payload: {};
 }
 
 export interface ICards {
@@ -46,36 +48,33 @@ interface IGetCardsFailureAction {
 export type TCardActionTypes =
      IGetCardsSuccessAction
     | IGetCardsStartedAction
-    | IGetCardsFailureAction;
+    | IGetCardsFailureAction
+    | IAddAsyncCardAction
 
-export const getCards = () => {
-    return (dispatch: Dispatch<TCardActionTypes>) => {
-        dispatch(getCardsStarted());
+export const getCards = () =>
         axios
-            .get<IAxiosResponse>(HREF_API)
-            .then(res => {
-                const mappedResponse = res.data.books.map(item => ({...item, title: item.title, price: item.price}))
-                    dispatch(getCardsSuccess(mappedResponse));
-            })
-            .catch(err => {
-                dispatch(getCardsFailure(err.message));
-            });
-    };
-};
+            .get<IAxiosResponse[]>(HREF_API)
 
-const getCardsSuccess: ActionCreator<TCardActionTypes> = (cards: ICards[]) => ({
+export const addAsyncCard = (): TCardActionTypes => {
+    return {
+        type: ADD_ASYNC_CARD,
+        payload: {}
+    }
+}
+
+export const getCardsSuccess: ActionCreator<TCardActionTypes> = (cards: IAxiosResponse[]) => ({
     type: GET_CARDS_SUCCESS,
     payload: [
         ...cards
     ]
 });
 
-const getCardsStarted: ActionCreator<TCardActionTypes> = () => ({
+export const getCardsStarted: ActionCreator<TCardActionTypes> = () => ({
     type: GET_CARDS_STARTED,
     payload: {}
 });
 
-const getCardsFailure: ActionCreator<TCardActionTypes> = (error: IError) => ({
+export const getCardsFailure: ActionCreator<TCardActionTypes> = (error: IError) => ({
     type: GET_CARDS_FAILURE,
     payload: {
         error
