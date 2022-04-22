@@ -5,6 +5,7 @@ export interface IFlexBox {
     flexDirection?: TFlexBoxFlexDirectionTypes
     mb?: number
     padding?: number
+    border?: string
 }
 
 type TFlexBoxjustifyContentTypes =
@@ -25,4 +26,6 @@ export const FlexBox = styled.div<IFlexBox>`
   flex-direction: ${p => p.flexDirection || 'row'};
   margin-bottom: ${p => p.mb || 20}px;
   padding: ${props => props.padding}px;
+  border-bottom: ${props => props.border};
+  border-top: ${props => props.border};
 `

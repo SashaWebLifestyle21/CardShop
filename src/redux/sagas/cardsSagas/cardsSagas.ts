@@ -24,7 +24,6 @@ interface IResponseObject {
 }
 
 function* fetchCardSaga() {
-
     const cards: ICards[] = yield select(cardSelector)
     try {
         yield put(
@@ -33,8 +32,6 @@ function* fetchCardSaga() {
 
         const response: IResponseObject = yield call(getData)
         if (response.data.books) {
-            console.log(response.data);
-
             const mappedResponse = response.data.books.map((item: IAxiosResponse) => (
                 {
                     ...item,

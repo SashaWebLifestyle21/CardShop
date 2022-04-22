@@ -2,6 +2,7 @@ import React from 'react';
 import { FlexBox } from "../common-components/FlexBox/FlexBox";
 import { Text } from "../common-components/Text/Text";
 import { Price } from "../common-components/Price/Price";
+import CounterCard from "../common-components/CounterCard/CounterCard";
 
 interface IAboutCardProps {
     titleCard: string
@@ -15,6 +16,7 @@ const AboutCard = ({ titleCard, priceCard }: IAboutCardProps) => {
             <Price>{priceCard}</Price>
             <Text size={14} marginBottom={16}>More information about stickers</Text>
             <Text size={18} marginBottom={16}>Quantity</Text>
+            <CounterCard />
         </FlexBox>
     );
 };

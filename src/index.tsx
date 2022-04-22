@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
+    
+    a {
+      text-decoration: none;
+    }
 }
 `
 ReactDOM.render(

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./components/common-components/Layout/Layout";
@@ -7,14 +7,14 @@ import { cardSelector } from "./redux/selectors/cardsSelectors/cardsSelectors";
 import CardShop from "./containers/CardShop/CardShop";
 import { ICards, IError } from "./redux/actions/cardsActionCreator/cardsActionCreator";
 
-export interface IDate {
+export interface IData {
     cards: ICards[],
     isLoading: boolean,
     error: IError
 }
 
 function App() {
-    const { cards, isLoading, error }: IDate = useTypedSelector(cardSelector)
+    const { cards, isLoading, error }: IData = useTypedSelector(cardSelector)
       return (
           <Routes>
               <Route element={<Layout />}>

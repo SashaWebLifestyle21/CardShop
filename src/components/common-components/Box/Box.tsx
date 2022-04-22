@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {themes} from "../../../constants/themes";
 
 interface IBox {
     width?: number
@@ -13,6 +14,8 @@ interface IBox {
     paddingLeft?: number
     paddingRight?: number
     isHovered?: boolean
+    backgroundColor?: string
+    color?: string
 }
 
 export const Box = styled.div<IBox>`
@@ -28,4 +31,6 @@ export const Box = styled.div<IBox>`
   padding-left: ${props => props.paddingLeft || 0}px;
   padding-right: ${props => props.paddingRight || 0}px;
   margin: ${props => props.marginAuto ? '0 auto' : ''};
+  background-color: ${props => props.backgroundColor || 'transparent'};
+  color: ${props => props.color || themes.colors.primary};
 `

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {IAxiosResponse} from "../../redux/sagas/cardsSagas/cardsSagas";
+import { IAxiosResponse } from "../../redux/sagas/cardsSagas/cardsSagas";
 import { HREF_API } from "../api-constants/constants";
 
 export const getData = () =>
