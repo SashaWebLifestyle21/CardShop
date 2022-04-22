@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "../containers/Header/Header";
 import { Title } from "../components/common-components/Title/Title";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
 import { addAsyncCard } from "../redux/actions/cardsActionCreator/cardsActionCreator";
 import CardSection from "../containers/CardSection/CardSection";

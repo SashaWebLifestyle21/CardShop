@@ -27,4 +27,5 @@ export const Box = styled.div<IBox>`
   padding-bottom: ${props => props.paddingBottom || 0}px;
   padding-left: ${props => props.paddingLeft || 0}px;
   padding-right: ${props => props.paddingRight || 0}px;
+  margin: ${props => props.marginAuto ? '0 auto' : ''};
 `

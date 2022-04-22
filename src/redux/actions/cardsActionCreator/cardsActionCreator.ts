@@ -1,7 +1,5 @@
-import axios from "axios";
 import { ActionCreator } from "redux";
 import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS, ADD_ASYNC_CARD } from "../actions";
-import { HREF_API } from "../../../constants/href-api";
 import { IAxiosResponse } from "../../sagas/cardsSagas/cardsSagas";
 
 export interface IError {
@@ -13,7 +11,6 @@ export interface IBooks {
     title: string,
     price: string
 }
-
 
 interface IAddAsyncCardAction {
     type: typeof ADD_ASYNC_CARD;
@@ -50,10 +47,6 @@ export type TCardActionTypes =
     | IGetCardsStartedAction
     | IGetCardsFailureAction
     | IAddAsyncCardAction
-
-export const getCards = () =>
-        axios
-            .get<IAxiosResponse[]>(HREF_API)
 
 export const addAsyncCard = (): TCardActionTypes => {
     return {

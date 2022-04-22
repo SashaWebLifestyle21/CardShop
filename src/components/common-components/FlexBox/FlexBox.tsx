@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export interface IFlexBox {
     justifyContent?: TFlexBoxjustifyContentTypes;
-    flexDirection?: string
+    flexDirection?: TFlexBoxFlexDirectionTypes
     mb?: number
     padding?: number
 }
@@ -13,6 +13,10 @@ type TFlexBoxjustifyContentTypes =
     | "space-between"
     | "space-around"
     | "space-evenly";
+
+type TFlexBoxFlexDirectionTypes =
+    | "row"
+    | "column"
 
 export const FlexBox = styled.div<IFlexBox>`
   display: flex;

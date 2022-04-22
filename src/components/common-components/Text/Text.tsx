@@ -9,6 +9,7 @@ interface IText {
     textAlign?: string
     color?: string
     hover?: string
+    marginBottom?: number
 }
 
 export const Text = styled.p<IText>`
@@ -17,7 +18,7 @@ export const Text = styled.p<IText>`
   font-weight: ${props => props.weight};
   color: ${props => props.color || themes.colors.primary};
   transition: color .3s linear;
-  
+  margin-bottom: ${props => props.marginBottom || 0}px;
   &:hover{
     color: ${props => props.hover}
   }

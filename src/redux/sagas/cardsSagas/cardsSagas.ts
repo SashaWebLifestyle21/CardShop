@@ -5,9 +5,10 @@ import {
     getCardsFailure,
     getCardsStarted,
     getCardsSuccess,
-    getCards,
+    ICards,
 } from "../../actions/cardsActionCreator/cardsActionCreator";
-import {cardSelector} from "../../selectors/cardsSelectors/cardsSelectors";
+import { cardSelector } from "../../selectors/cardsSelectors/cardsSelectors";
+import { getData } from "../../../api/api-utils/api-utils";
 
 export interface IAxiosResponse {
     title: string,
@@ -23,15 +24,17 @@ interface IResponseObject {
 }
 
 function* fetchCardSaga() {
-    // @ts-ignore
-    const cards = yield select(cardSelector)
+
+    const cards: ICards[] = yield select(cardSelector)
     try {
         yield put(
             getCardsStarted()
         );
 
-        const response: IResponseObject = yield call(getCards)
+        const response: IResponseObject = yield call(getData)
         if (response.data.books) {
+            console.log(response.data);
+
             const mappedResponse = response.data.books.map((item: IAxiosResponse) => (
                 {
                     ...item,

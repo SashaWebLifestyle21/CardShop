@@ -8,7 +8,7 @@ interface IInitialState {
 }
 
 const initialState = {
-    cards: [],
+    cards: [] as ICards[],
     isLoading: false,
     error: null
 }

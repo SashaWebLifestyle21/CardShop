@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Card from '../../components/home-components/CardSection/Card';
 import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
 import { FlexBox } from "../../components/common-components/FlexBox/FlexBox";
+import { Link } from "react-router-dom";
 
 interface ICardSection {
     cards: ICards[]
@@ -19,7 +20,9 @@ const CardSection = ({ cards }: ICardSection) => {
         <CardSectionWrapper justifyContent={'center'} mb={120}>
             {
                 cards.map( card => {
-                    return <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price} />
+                    return <Link key={card.id + card.isbn13} to={`/shop/${card.isbn13}`}>
+                        <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price} />
+                    </Link>
                 })
             }
         </CardSectionWrapper>
