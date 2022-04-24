@@ -7,11 +7,6 @@ export interface IError {
     message: string
 }
 
-export interface IBooks {
-    title: string,
-    price: string
-}
-
 interface IAddAsyncCardAction {
     type: typeof ADD_ASYNC_CARD;
     payload: {};

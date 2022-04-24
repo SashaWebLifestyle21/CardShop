@@ -37,7 +37,7 @@ function* fetchCardSaga() {
                     ...item,
                     title: item.title,
                     price: item.price,
-                    id: item.id,
+                    id: item.isbn13,
                     image: item.image,
                     isbn13: item.isbn13
                 }));

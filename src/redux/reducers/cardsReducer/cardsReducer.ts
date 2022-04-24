@@ -1,13 +1,13 @@
 import { GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE } from "../../actions/actions";
 import { ICards, IError, TCardActionTypes } from "../../actions/cardsActionCreator/cardsActionCreator";
 
-interface IInitialState {
+export interface IInitialState {
     cards: ICards[],
     isLoading: boolean,
     error: IError | null
 }
 
-const initialState = {
+export const initialState = {
     cards: [] as ICards[],
     isLoading: false,
     error: null

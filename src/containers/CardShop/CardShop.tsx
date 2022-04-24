@@ -5,15 +5,15 @@ import CardInfo from "../../components/shop-components/CardInfo";
 import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
 
 interface ICardShop {
-    cards: ICards
+    card: ICards
 }
 
-const CardShop = ({ cards }: ICardShop) => {
+const CardShop = ({ card }: ICardShop) => {
     return (
         <>
             <Header img={'../Images/shopback.jpg'} title={'Shop'} />
             <Wrapper>
-                <CardInfo imgSrc={cards.image} title={cards.title} price={cards.price} />
+                <CardInfo card={card} />
             </Wrapper>
         </>
     );

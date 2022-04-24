@@ -20,9 +20,10 @@ function App() {
               <Route element={<Layout />}>
                   <Route path='/' element={<Navigate replace to='/home' />} />
                   <Route path='/home' element={<Home />} />
+                  <Route path='/shop' element={<Navigate replace to='/home' />} />
                   <Route path='shop/*'>
                       {cards.map(card => {
-                          return <Route key={card.id + card.title} path={card.isbn13} element={<CardShop cards={card} />}/>
+                          return <Route key={card.id + card.title} path={card.isbn13} element={<CardShop card={card} />}/>
                       })}
                   </Route>
               </Route>

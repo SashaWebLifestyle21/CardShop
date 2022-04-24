@@ -12,6 +12,7 @@ interface IButton {
     marginBottom?: number
     marginLeft?: number
     marginRight?: number
+    fontSize?: number
 }
 
 export const Button = styled.button<IButton>`
@@ -27,7 +28,8 @@ export const Button = styled.button<IButton>`
   margin-bottom: ${props => props.marginBottom || 0}px;
   margin-left: ${props => props.marginLeft || 0}px;
   margin-right: ${props => props.marginRight || 0}px;
-  
+  font-size: ${props => props.fontSize}px;
+
   &:active{
     border: none;
   }
