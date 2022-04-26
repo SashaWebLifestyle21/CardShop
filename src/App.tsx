@@ -6,6 +6,7 @@ import { useTypedSelector } from "./redux/hooks/useTypedSelector";
 import { cardSelector } from "./redux/selectors/cardsSelectors/cardsSelectors";
 import CardShop from "./containers/CardShop/CardShop";
 import { ICards, IError } from "./redux/actions/cardsActionCreator/cardsActionCreator";
+import Cart from "./pages/Cart";
 
 export interface IData {
     cards: ICards[],
@@ -26,6 +27,7 @@ function App() {
                           return <Route key={card.id + card.title} path={card.isbn13} element={<CardShop card={card} />}/>
                       })}
                   </Route>
+                  <Route path='/cart' element={<Cart />} />
               </Route>
           </Routes>
       )

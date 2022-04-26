@@ -9,7 +9,7 @@ const basketReducer = (state = initialStateBasket, { payload, type }: TCardBaske
             return [
                 ...state, {
                     title: payload.title,
-                    price: payload.title,
+                    price: payload.price,
                     id: payload.id,
                     image: payload.image,
                     isbn13: payload.isbn13,

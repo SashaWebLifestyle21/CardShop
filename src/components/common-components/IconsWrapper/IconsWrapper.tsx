@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Icon from "../Icon/Icon";
 import { FlexBox } from "../FlexBox/FlexBox";
+import {Link} from "react-router-dom";
 
 interface IIconsWrapper{
     icons: Array<any>
@@ -22,7 +23,10 @@ const IconsWrapper = ({ icons, width, colGap }: IIconsWrapper) => {
     return (
         <IconsWrap width={width} colGap={colGap}>
             {icons.map(icon => {
-                return <Icon key={icon.id + icon.name} name={icon.name} size={20} />
+                return <Link to={`/${icon.name}`}>
+                    <Icon key={icon.id + icon.name} name={icon.name} size={20} />
+                </Link>
+
             })}
         </IconsWrap>
     );
