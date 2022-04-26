@@ -2,16 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import {ICardsBasket} from "../../../redux/actions/basketActionCreator/basketActionCreator";
 import Image from "../Image/Image";
-import CounterCard from "../CounterCard/CounterCard";
 import {FlexBox} from "../FlexBox/FlexBox";
 import Icon from "../Icon/Icon";
 
 interface ITableBodyItemCol {
     card: ICardsBasket
+    removeCard: (id: string) => void
 }
 
 export const TableBodyItemRow = styled.tr`
-  
 `
 
 export const TableBodyItemCol = styled.td`
@@ -24,7 +23,7 @@ export const TableBodyItemCol = styled.td`
   border-spacing: 0;
 `
 
-const TableBodyItem = ({ card }: ITableBodyItemCol) => {
+const TableBodyItem = ({ card, removeCard }: ITableBodyItemCol) => {
     return (
         <TableBodyItemRow>
             <TableBodyItemCol>
@@ -38,7 +37,7 @@ const TableBodyItem = ({ card }: ITableBodyItemCol) => {
                 {card.amount}
             </TableBodyItemCol>
             <TableBodyItemCol>{card.total}</TableBodyItemCol>
-            <TableBodyItemCol>
+            <TableBodyItemCol onClick={() => removeCard(card.id)}>
                 <Icon name={'remove'} />
             </TableBodyItemCol>
         </TableBodyItemRow>

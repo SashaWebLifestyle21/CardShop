@@ -6,6 +6,7 @@ import TableBodyItem from './TableBodyItem';
 
 interface ITable {
     bodyItems: ICardsBasket[]
+    removeCard: (id: string) => void
 }
 
 const TableW = styled.table`
@@ -14,7 +15,7 @@ const TableW = styled.table`
   border-collapse: collapse;
 `
 
-const Table = ({ bodyItems }: ITable) => {
+const Table = ({ bodyItems, removeCard }: ITable) => {
     return (
         <TableW>
             <thead>
@@ -27,7 +28,7 @@ const Table = ({ bodyItems }: ITable) => {
             </thead>
             <tbody>
                 {bodyItems.map(item => {
-                    return <TableBodyItem key={item.isbn13 + item.price} card={item}/>
+                    return <TableBodyItem key={item.isbn13 + item.price} card={item} removeCard={removeCard} />
                 })}
             </tbody>
         </TableW>
