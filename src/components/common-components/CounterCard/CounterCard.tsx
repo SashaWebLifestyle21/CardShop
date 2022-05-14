@@ -12,28 +12,6 @@ interface ICounterCard {
 }
 
 const CounterCard = ({ card }: ICounterCard) => {
-    const [count, setCount] = useState(0)
-
-    const handlePlusCount = () => {
-        setCount(count + 1)
-    }
-
-    const handleMinusCount = () => {
-        (count === 0) ? setCount(0) : setCount(count - 1)
-    }
-
-    const dispatch = useDispatch()
-
-    const handleAddCardBasket = () => {
-        dispatch(addCardBasket(
-            {
-                ...card,
-                amount: count,
-                total: count * Number(card.price.slice(1))
-            }
-        ))
-    }
-
     return (
         <FlexBox justifyContent={'space-between'} width={394}>
             <FlexBox justifyContent={'center'} border={`1px solid ${COLOR.primary}`} height={42}>
@@ -51,14 +29,6 @@ const CounterCard = ({ card }: ICounterCard) => {
                 </Box>
                 <Button onClick={handlePlusCount} color={COLOR.primary}>+</Button>
             </FlexBox>
-            <Button
-                backgroundColor={COLOR.primary}
-                color={COLOR.white}
-                fontSize={18}
-                onClick={handleAddCardBasket}
-            >
-                Add to cart
-            </Button>
         </FlexBox>
     );
 };
