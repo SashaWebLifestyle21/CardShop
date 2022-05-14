@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import {ICardsBasket} from "../../../redux/actions/basketActionCreator/basketActionCreator";
+import { ICardsBasket } from "../../../redux/actions/basketActionCreator/basketActionCreator";
 import Image from "../Image/Image";
-import {FlexBox} from "../FlexBox/FlexBox";
+import { FlexBox } from "../FlexBox/FlexBox";
 import Icon from "../Icon/Icon";
+import CounterCard from "../CounterCard/CounterCard";
+import { Button } from "../Button/Button";
+import { COLOR } from "../../../constants/color-constants";
 
 interface ITableBodyItemCol {
     card: ICardsBasket
-    removeCard: (id: string) => void
+    removeCard: (card: ICardsBasket) => void
+    increaseCard: (card: ICardsBasket) => void
+    decreaseCard: (card: ICardsBasket) => void
+    wishlist?: boolean
 }
 
 export const TableBodyItemRow = styled.tr`
@@ -23,7 +29,7 @@ export const TableBodyItemCol = styled.td`
   border-spacing: 0;
 `
 
-const TableBodyItem = ({ card, removeCard }: ITableBodyItemCol) => {
+const TableBodyItem = ({ card, removeCard, wishlist, increaseCard, decreaseCard }: ITableBodyItemCol) => {
     return (
         <TableBodyItemRow>
             <TableBodyItemCol>
@@ -34,10 +40,23 @@ const TableBodyItem = ({ card, removeCard }: ITableBodyItemCol) => {
             </TableBodyItemCol>
             <TableBodyItemCol>{card.price}</TableBodyItemCol>
             <TableBodyItemCol>
-                {card.amount}
+                {wishlist ?
+                card.stock
+                :
+                <CounterCard count={card.amount} handleIncrease={increaseCard} handleDecrease={decreaseCard} card={card} marginAuto />
+                }
             </TableBodyItemCol>
-            <TableBodyItemCol>{card.total}</TableBodyItemCol>
-            <TableBodyItemCol onClick={() => removeCard(card.id)}>
+            <TableBodyItemCol>
+                {wishlist ?
+                    (card.stock === 'in Stock' ?
+                    <Button backgroundColor={COLOR.primary} marginAuto>Add cart</Button>
+                    :
+                    <Button disabled>Add cart</Button>)
+                    :
+                    '$'+(card.total).toFixed(2)
+                }
+            </TableBodyItemCol>
+            <TableBodyItemCol onClick={() => removeCard(card)}>
                 <Icon name={'remove'} />
             </TableBodyItemCol>
         </TableBodyItemRow>

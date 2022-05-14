@@ -9,6 +9,7 @@ export interface IFlexBox {
     border?: string
     width?: number
     height?: number
+    marginAuto?: boolean
 }
 
 type TFlexBoxjustifyContentTypes =
@@ -16,7 +17,8 @@ type TFlexBoxjustifyContentTypes =
     | "center"
     | "space-between"
     | "space-around"
-    | "space-evenly";
+    | "space-evenly"
+    | "end";
 
 type TFlexBoxFlexDirectionTypes =
     | "row"
@@ -31,6 +33,7 @@ export const FlexBox = styled.div<IFlexBox>`
   align-items: ${props => props.alignItems || 'center'};
   justify-content: ${p => p.justifyContent || 'center'};
   flex-direction: ${p => p.flexDirection || 'row'};
+  margin: ${props => props.marginAuto ? '0 auto' : 0};
   margin-bottom: ${p => p.mb || 0}px;
   padding: ${props => props.padding}px;
   border-bottom: ${props => props.border};

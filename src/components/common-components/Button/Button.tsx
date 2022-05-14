@@ -1,36 +1,51 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import styled from "styled-components";
 import { themes } from "../../../constants/themes";
 
 interface IButton {
+    disabled?: boolean
     borderColor?: string
     backgroundColor?: string
     color?: string
     ptb?: string
     prl?: string
+    marginAuto?: boolean
     marginTop?: number
     marginBottom?: number
     marginLeft?: number
     marginRight?: number
     fontSize?: number
+    hoverBackground?: string
+    activeBackground?: string
+    hoverColor?: string
+    activeColor?: string
 }
 
 export const Button = styled.button<IButton>`
   padding: ${props => props.ptb || 12}px ${props => props.prl || 20}px;
   display: block;
   border: none;
-  border-color: ${props => props.borderColor || themes.colors.white};
+  border: ${props => props.borderColor ? `1px solid ${props.borderColor}` : ''};
   color: ${props => props.color || themes.colors.white};
-  background-color: ${props => props.backgroundColor || 'transparent'};
+  background-color: ${props => props.disabled ? themes.colors.lightGrey : props.backgroundColor || 'transparent'};
   border-radius: 5px;
   cursor: pointer;
-  margin-top: ${props => props.marginTop || 0}px;
-  margin-bottom: ${props => props.marginBottom || 0}px;
-  margin-left: ${props => props.marginLeft || 0}px;
-  margin-right: ${props => props.marginRight || 0}px;
+  margin: ${props => props.marginAuto ? '0 auto' : 0};
+  margin-top: ${props => props.marginTop}px;
+  margin-bottom: ${props => props.marginBottom}px;
+  margin-left: ${props => props.marginLeft}px;
+  margin-right: ${props => props.marginRight}px;
   font-size: ${props => props.fontSize}px;
-
-  &:active{
+  transition: all .3s linear;
+  &:active {
     border: none;
+    background-color: ${props => props.activeBackground};
+    color: ${props => props.activeColor};
+  }
+
+  &:hover {
+    background-color: ${props => !props.disabled ? props.hoverBackground : ''};
+    color: ${props => props.hoverColor};
   }
 `
+

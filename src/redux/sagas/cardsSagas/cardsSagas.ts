@@ -9,6 +9,7 @@ import {
 } from "../../actions/cardsActionCreator/cardsActionCreator";
 import { cardSelector } from "../../selectors/cardsSelectors/cardsSelectors";
 import { getData } from "../../../api/api-utils/api-utils";
+import { stockStatus } from "../../../constants/stockStatus";
 
 export interface IAxiosResponse {
     title: string,
@@ -16,6 +17,7 @@ export interface IAxiosResponse {
     id: string
     image: string
     isbn13: string
+    stock: string
 }
 
 interface IResponseObject {
@@ -36,10 +38,11 @@ function* fetchCardSaga() {
                 {
                     ...item,
                     title: item.title,
-                    price: item.price,
+                    price: item.price.slice(1),
                     id: item.isbn13,
                     image: item.image,
-                    isbn13: item.isbn13
+                    isbn13: item.isbn13,
+                    stock: stockStatus[Math.floor(Math.random() * (1 - 0 + 1)) + 0]
                 }));
             yield put(
                 getCardsSuccess(mappedResponse)
