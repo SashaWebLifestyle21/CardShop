@@ -1,13 +1,11 @@
-import { all, put, takeLatest, call, select } from "redux-saga/effects";
+import { all, put, takeLatest, call } from "redux-saga/effects";
 import { ADD_ASYNC_CARD } from "../../actions/actions";
 import {
     IError,
     getCardsFailure,
     getCardsStarted,
     getCardsSuccess,
-    ICards,
 } from "../../actions/cardsActionCreator/cardsActionCreator";
-import { cardSelector } from "../../selectors/cardsSelectors/cardsSelectors";
 import { getData } from "../../../api/api-utils/api-utils";
 import { stockStatus } from "../../../constants/stockStatus";
 
@@ -18,6 +16,7 @@ export interface IAxiosResponse {
     image: string
     isbn13: string
     stock: string
+    inBasket: boolean
 }
 
 interface IResponseObject {
@@ -26,7 +25,6 @@ interface IResponseObject {
 }
 
 function* fetchCardSaga() {
-    const cards: ICards[] = yield select(cardSelector)
     try {
         yield put(
             getCardsStarted()
@@ -42,7 +40,8 @@ function* fetchCardSaga() {
                     id: item.isbn13,
                     image: item.image,
                     isbn13: item.isbn13,
-                    stock: stockStatus[Math.floor(Math.random() * (1 - 0 + 1)) + 0]
+                    stock: stockStatus[Math.floor(Math.random() * (1 - 0 + 1)) + 0],
+                    inBasket: false
                 }));
             yield put(
                 getCardsSuccess(mappedResponse)

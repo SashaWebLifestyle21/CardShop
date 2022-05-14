@@ -1,4 +1,4 @@
-import { GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE } from "../../actions/actions";
+import { GET_CARDS_STARTED, GET_CARDS_SUCCESS, GET_CARDS_FAILURE, CHANGE_CARD_STATUS_BASKET } from "../../actions/actions";
 import { ICards, IError, TCardActionTypes } from "../../actions/cardsActionCreator/cardsActionCreator";
 
 export interface IInitialState {
@@ -29,6 +29,11 @@ const cardsReducer =(state = initialState,{ payload, type }: TCardActionTypes): 
             return {
                 ...state, error: payload.error, isLoading: false,
             };
+        case CHANGE_CARD_STATUS_BASKET:
+            return {
+                ...state,
+                cards: state.cards.map(card => card.id === payload.id ? {...card, inBasket: !card.inBasket} : {...card})
+            }
         default:
             return state
     }

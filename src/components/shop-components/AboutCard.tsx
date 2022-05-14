@@ -3,7 +3,7 @@ import { FlexBox } from "../common-components/FlexBox/FlexBox";
 import { Text } from "../common-components/Text/Text";
 import { Price } from "../common-components/Price/Price";
 import CounterCard from "../common-components/CounterCard/CounterCard";
-import { ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
+import {changeCardStatusBasket, ICards} from "../../redux/actions/cardsActionCreator/cardsActionCreator";
 import { useDispatch } from "react-redux";
 import { addCardBasket } from "../../redux/actions/basketActionCreator/basketActionCreator";
 import { COLOR } from "../../constants/color-constants";
@@ -27,6 +27,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
     const dispatch = useDispatch()
 
     const handleAddCardBasket = () => {
+        dispatch(changeCardStatusBasket(card.id))
         dispatch(addCardBasket(
             {
                 ...card,
@@ -48,6 +49,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
                 <FlexBox justifyContent={'space-between'} width={394}>
                     <CounterCard handleDecrease={decrease} handleIncrease={increase} count={count}/>
                     <Button
+                        disabled={card.inBasket}
                         backgroundColor={COLOR.primary}
                         color={COLOR.white}
                         fontSize={18}

@@ -16,7 +16,8 @@ const basketReducer = (state = initialStateBasket, { payload, type }: TCardBaske
                             isbn13: payload.isbn13,
                             stock: payload.stock,
                             amount: payload.amount,
-                            total: payload.total
+                            total: payload.total,
+                            inBasket: payload.inBasket
                     }
                 ],
                 totalPrice: state.totalPrice + payload.total
