@@ -3,7 +3,7 @@ import { FlexBox } from "../common-components/FlexBox/FlexBox";
 import { Text } from "../common-components/Text/Text";
 import { Price } from "../common-components/Price/Price";
 import CounterCard from "../common-components/CounterCard/CounterCard";
-import {changeCardStatusBasket, ICards} from "../../redux/actions/cardsActionCreator/cardsActionCreator";
+import { changeCardStatusBasket, ICards } from "../../redux/actions/cardsActionCreator/cardsActionCreator";
 import { useDispatch } from "react-redux";
 import { addCardBasket } from "../../redux/actions/basketActionCreator/basketActionCreator";
 import { COLOR } from "../../constants/color-constants";

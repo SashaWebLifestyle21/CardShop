@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Header from "../containers/Header/Header";
 import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
-import Table from "../components/common-components/Table/Table";
 import { useDispatch } from "react-redux";
 import { basketSelector } from "../redux/selectors/basketSelector/basketSelector";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
@@ -19,6 +18,7 @@ import {
     decreaseCardAmount,
     removeCardBasket
 } from '../redux/actions/basketActionCreator/basketActionCreator';
+import TableBasket from "../containers/TableBasket/TableBasket";
 
 const Cart = () => {
 
@@ -40,10 +40,10 @@ const Cart = () => {
     return (
         <>
             <Header img={'../Images/cartback.jpg'} title={'Cart'} />
-            <Wrapper directWidth >
+            <Wrapper directWidth>
                 {basket.cards.length === 0
                     ? <Title>Корзина пустая</Title>
-                    : <Table bodyItems={basket.cards} removeCard={removeCard} increaseCard={increaseCard} decreaseCard={decreaseCard} />
+                    : <TableBasket cards={basket.cards} removeCard={removeCard} increaseCard={increaseCard} decreaseCard={decreaseCard} />
                 }
                 <FlexBox justifyContent={'end'}>
                         <Link to={'/home'}>

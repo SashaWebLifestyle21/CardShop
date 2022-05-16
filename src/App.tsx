@@ -7,6 +7,7 @@ import { cardSelector } from "./redux/selectors/cardsSelectors/cardsSelectors";
 import CardShop from "./containers/CardShop/CardShop";
 import { ICards, IError } from "./redux/actions/cardsActionCreator/cardsActionCreator";
 import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
 
 export interface IData {
     cards: ICards[],
@@ -15,7 +16,7 @@ export interface IData {
 }
 
 function App() {
-    const { cards, isLoading, error }: IData = useTypedSelector(cardSelector)
+    const { cards }: IData = useTypedSelector(cardSelector)
       return (
           <Routes>
               <Route element={<Layout />}>
@@ -24,10 +25,11 @@ function App() {
                   <Route path='/shop' element={<Navigate replace to='/home' />} />
                   <Route path='shop/*'>
                       {cards.map(card => {
-                          return <Route key={card.id + card.title} path={card.isbn13} element={<CardShop card={card} />}/>
+                          return <Route key={card.id + card.title} path={card.isbn13} element={<CardShop card={card} />} />
                       })}
                   </Route>
                   <Route path='/cart' element={<Cart />} />
+                  <Route path={'/wishlist'} element={<Wishlist />} />
               </Route>
           </Routes>
       )

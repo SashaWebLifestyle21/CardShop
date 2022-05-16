@@ -23,8 +23,8 @@ const CounterCard = ({ handleIncrease, handleDecrease, count, marginAuto, card }
         <FlexBox justifyContent={'center'} border={`1px solid ${COLOR.primary}`} height={42} width={128} marginAuto={marginAuto}>
             {
                 card
-                    ? <Button onClick={() => checkDecrease(card, handleDecrease)} color={COLOR.primary}>-</Button>
-                    : <Button onClick={handleDecrease} color={COLOR.primary}>-</Button>
+                ? <Button onClick={() => checkDecrease(card, handleDecrease)} color={COLOR.primary}>-</Button>
+                : <Button onClick={handleDecrease} color={COLOR.primary}>-</Button>
             }
             <Box
                 backgroundColor={COLOR.primary}

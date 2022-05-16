@@ -1,5 +1,12 @@
 import { ActionCreator } from "redux";
-import { GET_CARDS_FAILURE, GET_CARDS_STARTED, GET_CARDS_SUCCESS, ADD_ASYNC_CARD, CHANGE_CARD_STATUS_BASKET } from "../actions";
+import {
+    GET_CARDS_FAILURE,
+    GET_CARDS_STARTED,
+    GET_CARDS_SUCCESS,
+    ADD_ASYNC_CARD,
+    CHANGE_CARD_STATUS_BASKET,
+    CHANGE_CARD_STATUS_WISHLIST
+} from "../actions";
 import { IAxiosResponse } from "../../sagas/cardsSagas/cardsSagas";
 
 export interface IError {
@@ -20,6 +27,7 @@ export interface ICards {
     isbn13: string
     stock: string
     inBasket: boolean
+    inWishlist: boolean
 }
 
 interface IGetCardsSuccessAction {
@@ -45,6 +53,12 @@ interface IChangeCardStatusBasketAction {
         id: string
     }
 }
+interface IChangeCardStatusWishlistAction {
+    type: typeof CHANGE_CARD_STATUS_WISHLIST,
+    payload: {
+        id: string
+    }
+}
 
 export type TCardActionTypes =
      IGetCardsSuccessAction
@@ -52,6 +66,7 @@ export type TCardActionTypes =
     | IGetCardsFailureAction
     | IAddAsyncCardAction
     | IChangeCardStatusBasketAction
+    | IChangeCardStatusWishlistAction
 
 export const addAsyncCard = (): TCardActionTypes => {
     return {
@@ -81,6 +96,13 @@ export const getCardsFailure: ActionCreator<TCardActionTypes> = (error: IError) 
 
 export const changeCardStatusBasket: ActionCreator<TCardActionTypes> = (id: string) => ({
     type: CHANGE_CARD_STATUS_BASKET,
+    payload: {
+        id
+    }
+});
+
+export const changeCardStatusWishlist: ActionCreator<TCardActionTypes> = (id: string) => ({
+    type: CHANGE_CARD_STATUS_WISHLIST,
     payload: {
         id
     }

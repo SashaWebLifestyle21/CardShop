@@ -26,7 +26,6 @@ const IconsWrapper = ({ icons, width, colGap }: IIconsWrapper) => {
                 return <Link to={`/${icon.name}`} key={icon.name + icon.id}>
                     <Icon key={icon.id + icon.name} name={icon.name} size={20} />
                 </Link>
-
             })}
         </IconsWrap>
     );

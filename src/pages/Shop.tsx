@@ -13,7 +13,7 @@ const Shop = () => {
             <Header img={'../Images/shopback.jpg'} title={'Shop'} />
             <Routes>
                 {cards.map(card => {
-                    return <Route key={card.id} path={card.isbn13} element={<CardShop card={card}/>}/>
+                    return <Route key={card.id} path={card.isbn13} element={<CardShop card={card} />} />
                 })}
             </Routes>
         </>

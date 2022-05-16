@@ -1,7 +1,6 @@
 import { ADD_CARD_BASKET, REMOVE_CARD_FROM_BASKET, INCREASE_CARD_AMOUNT, DECREASE_CARD_AMOUNT } from "../actions";
 import { ICards } from "../cardsActionCreator/cardsActionCreator";
 
-
 export interface ICardsBasket extends ICards {
     amount: number
     total: number

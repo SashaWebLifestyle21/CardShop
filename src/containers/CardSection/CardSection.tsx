@@ -21,7 +21,7 @@ const CardSection = ({ cards }: ICardSection) => {
             {
                 cards.map( card => {
                     return <Link key={card.id + card.isbn13} to={`/shop/${card.isbn13}`}>
-                        <Card key={card.isbn13+card.price} image={card.image} alt={card.image} title={card.title} price={card.price} />
+                        <Card key={card.isbn13+card.price} card={card} />
                     </Link>
                 })
             }

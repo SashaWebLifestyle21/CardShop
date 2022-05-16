@@ -17,6 +17,7 @@ export interface IAxiosResponse {
     isbn13: string
     stock: string
     inBasket: boolean
+    inWishlist: boolean
 }
 
 interface IResponseObject {
@@ -40,8 +41,9 @@ function* fetchCardSaga() {
                     id: item.isbn13,
                     image: item.image,
                     isbn13: item.isbn13,
-                    stock: stockStatus[Math.floor(Math.random() * (1 - 0 + 1)) + 0],
-                    inBasket: false
+                    stock: stockStatus[Math.floor(Math.random() * 2)],
+                    inBasket: false,
+                    inWishlist: false
                 }));
             yield put(
                 getCardsSuccess(mappedResponse)
