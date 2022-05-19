@@ -42,9 +42,7 @@ const basketReducer = (state = initialStateBasket, { payload, type }: TCardBaske
                 totalPrice: state.totalPrice - Number(payload.price)
             }
         default:
-            return {
-                ...state
-            }
+            return state
     }
 }
 

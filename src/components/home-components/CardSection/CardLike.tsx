@@ -21,9 +21,6 @@ const CardLikeWrapper = styled(Box)`
   right: 16px;
   cursor: pointer;
   z-index: 5;
-  &:hover {
-    color: ${props => props.theme.colors.secondary};
-  }
 `
 
 const CardLike = ({ card }: ICardLike) => {

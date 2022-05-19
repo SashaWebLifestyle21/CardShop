@@ -8,6 +8,7 @@ import CardShop from "./containers/CardShop/CardShop";
 import { ICards, IError } from "./redux/actions/cardsActionCreator/cardsActionCreator";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import Checkout from "./pages/Checkout";
 
 export interface IData {
     cards: ICards[],
@@ -30,6 +31,7 @@ function App() {
                   </Route>
                   <Route path='/cart' element={<Cart />} />
                   <Route path={'/wishlist'} element={<Wishlist />} />
+                  <Route path={'/checkout'} element={<Checkout />} />
               </Route>
           </Routes>
       )

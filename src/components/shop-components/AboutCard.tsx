@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addCardBasket } from "../../redux/actions/basketActionCreator/basketActionCreator";
 import { COLOR } from "../../constants/color-constants";
 import { Button } from "../common-components/Button/Button";
+import {changeStatusInBasket} from "../../redux/actions/wishlistActionCreator/wishlistActionCreator";
 
 interface IAboutCardProps {
     card: ICards
@@ -28,6 +29,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
 
     const handleAddCardBasket = () => {
         dispatch(changeCardStatusBasket(card.id))
+        dispatch(changeStatusInBasket(card.id))
         dispatch(addCardBasket(
             {
                 ...card,

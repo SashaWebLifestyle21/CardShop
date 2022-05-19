@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "../containers/Header/Header";
 import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
 import { useDispatch } from "react-redux";
@@ -19,14 +19,17 @@ import {
     removeCardBasket
 } from '../redux/actions/basketActionCreator/basketActionCreator';
 import TableBasket from "../containers/TableBasket/TableBasket";
+import {changeCardStatusBasket} from "../redux/actions/cardsActionCreator/cardsActionCreator";
+import {changeStatusInBasket} from "../redux/actions/wishlistActionCreator/wishlistActionCreator";
 
 const Cart = () => {
-
     const basket = useTypedSelector(basketSelector)
     const dispatch = useDispatch()
 
     const removeCard = (card: ICardsBasket) => {
         dispatch(removeCardBasket(card))
+        dispatch(changeCardStatusBasket(card.id))
+        dispatch(changeStatusInBasket(card.id))
     }
 
     const increaseCard = (card: ICardsBasket) => {
@@ -57,11 +60,24 @@ const Cart = () => {
                             </Button>
                         </Link>
                 </FlexBox>
-                <FlexBox justifyContent={'end'}>
+                <FlexBox justifyContent={'end'} marginBottom={40}>
                     <FlexBox justifyContent={'space-between'} width={150}>
                         <Text weight={themes.fontWeight.bold} size={24}>Total</Text>
                         <Price>${basket.totalPrice.toFixed(2)}</Price>
                     </FlexBox>
+                </FlexBox>
+                <FlexBox justifyContent={'end'}>
+                    <Link to={'/checkout'}>
+                        <Button
+                            color={COLOR.white}
+                            backgroundColor={COLOR.primary}
+                            fontSize={18}
+                            borderColor={COLOR.primary}
+                            marginBottom={64}
+                        >
+                            Proceed to checkout
+                        </Button>
+                    </Link>
                 </FlexBox>
             </Wrapper>
         </>

@@ -14,7 +14,6 @@ import { FlexBox } from "../components/common-components/FlexBox/FlexBox";
 import { changeCardStatusWishlist } from "../redux/actions/cardsActionCreator/cardsActionCreator";
 
 const Wishlist = () => {
-
     const wishlist = useTypedSelector(wishlistSelector)
     const dispatch = useDispatch()
 

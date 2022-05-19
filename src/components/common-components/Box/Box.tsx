@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {themes} from "../../../constants/themes";
+import { themes } from "../../../constants/themes";
 
 interface IBox {
     width?: number

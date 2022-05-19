@@ -1,7 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
-export const TableBodyItemRow = styled.tr``
 
 export const TableBodyItemCol = styled.td`
   border-top: 1px solid ${props => props.theme.colors.lightGrey};

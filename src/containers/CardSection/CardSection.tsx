@@ -17,12 +17,12 @@ const CardSectionWrapper = styled(FlexBox)`
 
 const CardSection = ({ cards }: ICardSection) => {
     return (
-        <CardSectionWrapper justifyContent={'center'} mb={120}>
+        <CardSectionWrapper justifyContent={'center'} marginBottom={120}>
             {
                 cards.map( card => {
-                    return <Link key={card.id + card.isbn13} to={`/shop/${card.isbn13}`}>
+                    return (<Link key={card.id + card.isbn13} to={`/shop/${card.isbn13}`}>
                         <Card key={card.isbn13+card.price} card={card} />
-                    </Link>
+                    </Link>)
                 })
             }
         </CardSectionWrapper>

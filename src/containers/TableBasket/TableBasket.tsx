@@ -1,9 +1,9 @@
 import React from 'react';
-import { Table } from "../../components/common-components/Table/Table";
+import { Table, TableRow, TBody, THead } from "../../components/common-components/Table/Table";
 import { tableHeadBasket } from "../../constants/tableHeadBasket";
 import { TableHeadItem } from "../../components/common-components/Table/TableHeadItem";
 import { ICardsBasket } from "../../redux/actions/basketActionCreator/basketActionCreator";
-import { TableBodyItemCol, TableBodyItemRow } from "../../components/common-components/Table/TableBodyItem";
+import { TableBodyItemCol } from "../../components/common-components/Table/TableBodyItem";
 import { FlexBox } from '../../components/common-components/FlexBox/FlexBox';
 import Image from "../../components/common-components/Image/Image";
 import CounterCard from '../../components/common-components/CounterCard/CounterCard';
@@ -19,14 +19,14 @@ interface ITableBasket {
 const TableBasket = ({ cards, increaseCard, decreaseCard, removeCard }: ITableBasket) => {
     return (
         <Table>
-            <thead>
-                <tr>
+            <THead>
+                <TableRow>
                     {tableHeadBasket.map(item => <TableHeadItem key={item.id}>{item.text}</TableHeadItem>)}
-                </tr>
-            </thead>
-            <tbody>
+                </TableRow>
+            </THead>
+            <TBody>
                 {cards.map(card => {
-                   return <TableBodyItemRow>
+                   return (<TableRow key={card.id + card.price}>
                         <TableBodyItemCol>
                             <FlexBox justifyContent={'center'}>
                                 <Image src={card.image} alt={card.title} height={64} width={64}/>
@@ -46,9 +46,9 @@ const TableBasket = ({ cards, increaseCard, decreaseCard, removeCard }: ITableBa
                        <TableBodyItemCol onClick={() => removeCard(card)}>
                            <Icon name={'remove'} />
                        </TableBodyItemCol>
-                    </TableBodyItemRow>
+                    </TableRow>)
                 })}
-            </tbody>
+            </TBody>
         </Table>
     );
 };

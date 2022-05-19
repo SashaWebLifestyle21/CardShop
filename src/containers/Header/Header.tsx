@@ -26,7 +26,7 @@ const Header = ({ img, title }: IHeaderWrapperProp) => {
     return (
         <HeaderWrapper img={img} marginBottom={40}>
             <Wrapper directWidth>
-                <FlexBox justifyContent={'space-between'} mb={70}>
+                <FlexBox justifyContent={'space-between'} marginBottom={70}>
                     <Link to={'/home'}>
                         <Logo />
                     </Link>

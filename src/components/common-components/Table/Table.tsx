@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from "styled-components";
 
 export const Table = styled.table`
@@ -7,3 +6,9 @@ export const Table = styled.table`
   border-collapse: collapse;
   margin-bottom: 40px;
 `
+
+export const THead = styled.thead``
+
+export const TBody = styled.tbody``
+
+export const TableRow = styled.tr``

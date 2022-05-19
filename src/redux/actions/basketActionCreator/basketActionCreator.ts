@@ -50,6 +50,7 @@ export const removeCardBasket = (card: ICardsBasket): TCardBasketActionTypes => 
         }
     }
 }
+
 export const increaseCardAmount = (card: ICardsBasket): TCardBasketActionTypes => {
     return {
         type: INCREASE_CARD_AMOUNT,
