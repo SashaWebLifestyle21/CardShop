@@ -4,6 +4,8 @@ import styled from "styled-components";
 interface IRadio {
     name: string
     children: React.ReactNode
+    checked?: boolean
+    onChange?: () => void
 }
 
 
@@ -59,10 +61,10 @@ const Label = styled.label`
 
 `;
 
-const Radio = ({ name, children }: IRadio) => (
+const Radio = ({ name, children, checked, onChange }: IRadio) => (
     <RadioWrapper>
         <Label>
-            <Input name={name} type="radio" />
+            <Input name={name} type="radio" checked={checked} onChange={onChange}/>
             <Mark />
             {children}
         </Label>

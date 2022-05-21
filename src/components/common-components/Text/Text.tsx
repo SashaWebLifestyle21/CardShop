@@ -12,6 +12,7 @@ interface IText {
     marginBottom?: number
     marginTop?: number
     width?: number
+    display?: string
 }
 
 export const Text = styled.p<IText>`
@@ -23,6 +24,7 @@ export const Text = styled.p<IText>`
   margin-bottom: ${props => props.marginBottom || 0}px;
   margin-top: ${props => props.marginTop || 0}px;
   width: ${props => props.width}px;
+  display: ${props => props.display || 'block'};
   &:hover{
     color: ${props => props.hover}
   }

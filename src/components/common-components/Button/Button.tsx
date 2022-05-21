@@ -7,8 +7,8 @@ interface IButton {
     borderColor?: string
     backgroundColor?: string
     color?: string
-    ptb?: string
-    prl?: string
+    ptb?: number
+    prl?: number
     marginAuto?: boolean
     marginTop?: number
     marginBottom?: number

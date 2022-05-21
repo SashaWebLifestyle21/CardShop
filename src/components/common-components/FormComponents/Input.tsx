@@ -5,6 +5,12 @@ interface IInput {
     type: TInputTypes
     name?: string
     onChange?: (e: any) => void
+    borderColor?: string
+    placeholder?: string
+}
+
+interface IInputWrapper {
+    borderColor?: string
 }
 
 export type TInputTypes =
@@ -19,8 +25,8 @@ export type TInputTypes =
     | "date"
     | "number"
 
-const InputWrapper = styled.input`
-  border: 1px solid ${props => props.theme.colors.lightGrey};
+const InputWrapper = styled.input<IInputWrapper>`
+  border: 1px solid ${props => props.borderColor || props.theme.colors.lightGrey};
   padding: 5px;
   font-size: 18px;
   color: ${props => props.theme.colors.primary};
@@ -34,13 +40,19 @@ const InputWrapper = styled.input`
   }
   &:focus {
     outline: none;
-    border: 2px solid ${props => props.theme.colors.grey};
+    border: 2px solid ${ props => props.borderColor || props.theme.colors.grey};
   }
 `
 
-const Input = ({ type, name, onChange }: IInput) => {
+const Input = ({ type, name, onChange, borderColor, placeholder }: IInput) => {
     return (
-        <InputWrapper type={type} name={name} onChange={onChange}/>
+        <InputWrapper
+            type={type}
+            name={name}
+            onChange={onChange}
+            borderColor={borderColor}
+            placeholder={placeholder}
+        />
     );
 };
 
