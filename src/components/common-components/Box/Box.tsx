@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { themes } from "../../../constants/themes";
 
 interface IBox {
     width?: number
@@ -13,11 +14,15 @@ interface IBox {
     paddingLeft?: number
     paddingRight?: number
     isHovered?: boolean
+    backgroundColor?: string
+    color?: string
+    mediaWidth?: number
 }
 
 export const Box = styled.div<IBox>`
   display: block;
-  width: ${props => props.width}px;
+  max-width: ${props => props.width}px;
+  width: 100%;
   height: ${props => props.height}px;
   margin-top: ${props => props.marginTop || 0}px;
   margin-bottom: ${props => props.marginBottom || 0}px;
@@ -27,4 +32,14 @@ export const Box = styled.div<IBox>`
   padding-bottom: ${props => props.paddingBottom || 0}px;
   padding-left: ${props => props.paddingLeft || 0}px;
   padding-right: ${props => props.paddingRight || 0}px;
+  margin: ${props => props.marginAuto ? '0 auto' : ''};
+  background-color: ${props => props.backgroundColor || 'transparent'};
+  color: ${props => props.color || themes.colors.primary};
+
+  @media ${props => props.theme.media.tablet} {
+    width: ${props => props.mediaWidth}%;
+  }
+  @media ${props => props.theme.media.phone} {
+    width: ${props => props.mediaWidth}%;
+  }
 `

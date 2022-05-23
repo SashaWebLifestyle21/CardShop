@@ -1,20 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../containers/Header/Header";
 import { Title } from "../components/common-components/Title/Title";
-import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
-import { getCards } from "../redux/actions/cardsActionCreator/cardsActionCreator";
 import CardSection from "../containers/CardSection/CardSection";
 import Loader from "../components/common-components/Loader/Loader";
 import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
+import { cardSelector } from "../redux/selectors/cardsSelectors/cardsSelectors";
 
 const Home: React.FC = () => {
-    const { cards, isLoading, error } = useTypedSelector(state => state.cards)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(getCards())
-    },[])
+    const { cards, isLoading, error } = useTypedSelector(cardSelector)
 
     return (
         <>

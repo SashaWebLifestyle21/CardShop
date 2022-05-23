@@ -12,7 +12,7 @@ const CardInfo = ({ title, price}: ICardInfo) => {
     return (
         <FlexBox justifyContent={'space-between'} padding={5}>
             <Text weight={600} size={20}>{title}</Text>
-            <Price>{price}</Price>
+            <Price>${price}</Price>
         </FlexBox>
     );
 };

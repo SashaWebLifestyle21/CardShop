@@ -5,12 +5,10 @@ import Image from "../../common-components/Image/Image";
 import CardInfo from "./CardInfo";
 import CardHoverText from "./CardHoverText";
 import { Wrapper } from "../../common-components/Wrapper/Wrapper";
+import { ICards } from "../../../redux/actions/cardsActionCreator/cardsActionCreator";
 
 interface ICardProps {
-    image: string
-    alt?: string
-    title: string
-    price: string
+    card: ICards
 }
 
 const CardWrapper = styled(Wrapper)`
@@ -34,7 +32,7 @@ const CardWrapper = styled(Wrapper)`
   }
 `
 
-const Card = ({ image, alt, price, title }: ICardProps) => {
+const Card = ({ card }: ICardProps) => {
     const [isHovered, setIsHovered] = useState(false);
     return (
         <CardWrapper
@@ -43,12 +41,12 @@ const Card = ({ image, alt, price, title }: ICardProps) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <CardHoverText isHovered={isHovered}/>
-            <Image width={288} height={288} src={image} alt={alt} />
-            <CardLike />
-            <CardInfo title={title} price={price} />
+            <CardHoverText isHovered={isHovered} />
+            <Image width={288} height={288} src={card.image} alt={card.image} />
+            <CardLike card={card} />
+            <CardInfo title={card.title} price={card.price} />
         </CardWrapper>
     );
 };
 
-export default Card;
+export default React.memo(Card);

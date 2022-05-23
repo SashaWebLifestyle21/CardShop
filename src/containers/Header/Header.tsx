@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Box } from '../../components/common-components/Box/Box';
 import { Wrapper } from "../../components/common-components/Wrapper/Wrapper";
 import { Title } from "../../components/common-components/Title/Title";
+import { Link } from "react-router-dom";
 
 interface IHeaderWrapperProp {
     img: string
@@ -18,15 +19,17 @@ interface IHeaderWrapper {
 }
 
 const HeaderWrapper = styled(Box)<IHeaderWrapper>`
-    background: url( ${p => p.img});
+  background: url( ${p => p.img});
 `
 
 const Header = ({ img, title }: IHeaderWrapperProp) => {
     return (
         <HeaderWrapper img={img} marginBottom={40}>
             <Wrapper directWidth>
-                <FlexBox justifyContent={'space-between'} mb={70}>
-                    <Logo />
+                <FlexBox justifyContent={'space-between'} marginBottom={70}>
+                    <Link to={'/home'}>
+                        <Logo />
+                    </Link>
                     <IconsWrapper icons={iconsHeader} width={100} colGap={20} />
                 </FlexBox>
                 <Title width={150} mb={140}>{title}</Title>
@@ -35,4 +38,4 @@ const Header = ({ img, title }: IHeaderWrapperProp) => {
     );
 };
 
-export default Header;
+export default React.memo(Header);
