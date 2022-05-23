@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from "styled-components";
 import { Box } from '../../common-components/Box/Box';
 import Icon from "../../common-components/Icon/Icon";
@@ -26,12 +26,12 @@ const CardLikeWrapper = styled(Box)`
 const CardLike = ({ card }: ICardLike) => {
     const dispatch = useDispatch()
 
-    const handleAddCardWishlist = () => {
+    const handleAddCardWishlist = useCallback(() => {
         if(!card.inWishlist){
             dispatch(changeCardStatusWishlist(card.id))
             dispatch(addCardWishlist(card))
         }
-    }
+    }, [dispatch, card])
 
     return (
         <CardLikeWrapper width={16} onClick={handleAddCardWishlist}>
@@ -40,4 +40,4 @@ const CardLike = ({ card }: ICardLike) => {
     );
 };
 
-export default CardLike;
+export default React.memo(CardLike);

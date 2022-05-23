@@ -4,13 +4,9 @@ import styled from "styled-components";
 interface IInput {
     type: TInputTypes
     name?: string
-    onChange?: (e: any) => void
+    onChange?: (e: React.FormEvent<HTMLInputElement>) => void
     borderColor?: string
     placeholder?: string
-}
-
-interface IInputWrapper {
-    borderColor?: string
 }
 
 export type TInputTypes =
@@ -25,7 +21,7 @@ export type TInputTypes =
     | "date"
     | "number"
 
-const InputWrapper = styled.input<IInputWrapper>`
+export const Input = styled.input<IInput>`
   border: 1px solid ${props => props.borderColor || props.theme.colors.lightGrey};
   padding: 5px;
   font-size: 18px;
@@ -44,16 +40,4 @@ const InputWrapper = styled.input<IInputWrapper>`
   }
 `
 
-const Input = ({ type, name, onChange, borderColor, placeholder }: IInput) => {
-    return (
-        <InputWrapper
-            type={type}
-            name={name}
-            onChange={onChange}
-            borderColor={borderColor}
-            placeholder={placeholder}
-        />
-    );
-};
-
-export default Input;
+export default React.memo(Input)

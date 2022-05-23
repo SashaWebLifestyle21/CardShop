@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Table, TableRow, TBody, THead } from "../../components/common-components/Table/Table";
 import { tableHeadWishlist } from "../../constants/tableHeadWishlist";
 import { TableHeadItem } from "../../components/common-components/Table/TableHeadItem";
@@ -22,7 +22,7 @@ const TableWishlist = ({ cards, removeCard }: ITableWishlist) => {
 
     const dispatch = useDispatch()
 
-    const handleAddCardBasket = (card: ICards) => {
+    const handleAddCardBasket = useCallback((card: ICards) => {
         if(!card.inBasket){
             dispatch(changeCardStatusBasket(card.id))
             dispatch(changeStatusInBasket(card.id))
@@ -34,7 +34,7 @@ const TableWishlist = ({ cards, removeCard }: ITableWishlist) => {
                 }
             ))
         }
-    }
+    },[dispatch])
 
     return (
         <Table>
@@ -77,4 +77,4 @@ const TableWishlist = ({ cards, removeCard }: ITableWishlist) => {
     );
 };
 
-export default TableWishlist;
+export default React.memo(TableWishlist);

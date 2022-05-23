@@ -38,4 +38,4 @@ const Header = ({ img, title }: IHeaderWrapperProp) => {
     );
 };
 
-export default Header;
+export default React.memo(Header);

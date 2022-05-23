@@ -20,4 +20,4 @@ const CardInfo = ({ card }: ICardInfoProps) => {
     );
 };
 
-export default CardInfo;
+export default React.memo(CardInfo);

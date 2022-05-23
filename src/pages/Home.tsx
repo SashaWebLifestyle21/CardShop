@@ -8,7 +8,6 @@ import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
 import { cardSelector } from "../redux/selectors/cardsSelectors/cardsSelectors";
 
 const Home: React.FC = () => {
-
     const { cards, isLoading, error } = useTypedSelector(cardSelector)
 
     return (

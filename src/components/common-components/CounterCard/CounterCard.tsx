@@ -47,4 +47,4 @@ const CounterCard = ({ handleIncrease, handleDecrease, count, marginAuto, card }
     );
 };
 
-export default CounterCard;
+export default React.memo(CounterCard);

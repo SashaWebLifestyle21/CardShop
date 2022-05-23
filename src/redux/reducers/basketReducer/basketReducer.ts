@@ -32,13 +32,13 @@ const basketReducer = (state = initialStateBasket, { payload, type }: TCardBaske
         case INCREASE_CARD_AMOUNT:
             return {
                 ...state,
-                cards: state.cards.map(card => card.id === payload.id ? {...card, amount: card.amount + 1, total: card.total + Number(card.price)} : {...card}),
+                cards: state.cards.map(card => card.id === payload.id ? { ...card, amount: card.amount + 1, total: card.total + Number(card.price) } : { ...card }),
                 totalPrice: state.totalPrice + Number(payload.price)
             }
         case DECREASE_CARD_AMOUNT:
             return {
                 ...state,
-                cards: state.cards.map(card => card.id === payload.id ? {...card, amount: card.amount - 1, total: card.total - Number(card.price)} : {...card}),
+                cards: state.cards.map(card => card.id === payload.id ? { ...card, amount: card.amount - 1, total: card.total - Number(card.price) } : { ...card }),
                 totalPrice: state.totalPrice - Number(payload.price)
             }
         default:

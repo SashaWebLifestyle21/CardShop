@@ -53,4 +53,4 @@ const TableBasket = ({ cards, increaseCard, decreaseCard, removeCard }: ITableBa
     );
 };
 
-export default TableBasket;
+export default React.memo(TableBasket);

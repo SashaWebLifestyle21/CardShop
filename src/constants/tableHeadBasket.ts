@@ -1,4 +1,4 @@
-import {ITableHead} from "./tableHeadWishlist";
+import { ITableHead } from "./tableHeadWishlist";
 
 export const tableHeadBasket: ITableHead[] = [
     {

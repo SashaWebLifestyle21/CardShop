@@ -29,4 +29,4 @@ const CardSection = ({ cards }: ICardSection) => {
     );
 };
 
-export default CardSection;
+export default React.memo(CardSection);

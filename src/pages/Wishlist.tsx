@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
 import Header from "../containers/Header/Header";
 import { useTypedSelector } from "../redux/hooks/useTypedSelector";
@@ -17,10 +17,10 @@ const Wishlist = () => {
     const wishlist = useTypedSelector(wishlistSelector)
     const dispatch = useDispatch()
 
-    const removeCard = (id: string) => {
+    const removeCard = useCallback((id: string) => {
         dispatch(removeCardWishlist(id))
         dispatch(changeCardStatusWishlist(id))
-    }
+    },[dispatch])
 
     return (
         <>
@@ -44,10 +44,9 @@ const Wishlist = () => {
                         </FlexBox>
                     </>
                 : <TableWishlist cards={wishlist} removeCard={removeCard} />}
-
             </Wrapper>
         </>
     );
 };
 
-export default Wishlist;
+export default React.memo(Wishlist);

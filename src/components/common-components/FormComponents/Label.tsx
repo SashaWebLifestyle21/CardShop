@@ -6,13 +6,6 @@ interface ILabel {
     nameForInput: string
 }
 
-export const LabelWrapper = styled.label`
-`
-
-const Label = ({ children, nameForInput }: ILabel) => {
-    return (
-        <LabelWrapper htmlFor={nameForInput}>{children}</LabelWrapper>
-    );
-};
+export const Label = styled.label<ILabel>``
 
 export default Label;

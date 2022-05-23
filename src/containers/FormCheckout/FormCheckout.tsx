@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Box } from "../../components/common-components/Box/Box";
 import FormGroup from "../../components/common-components/FormGroup/FormGroup";
 import { Text } from "../../components/common-components/Text/Text";
@@ -13,52 +13,95 @@ import {
     validOnlyLetter,
     validPhone
 } from "../../api/validation/validation";
-import {fakeAPI} from "../../api/api-utils/api-utils";
+import { fakeAPI } from "../../api/api-utils/api-utils";
 
 const FormCheckout = () => {
-
     const [firstName, setFirstName] = useState({
         firstName: '',
-        error: false
+        error: true
     })
     const [lastName, setLastName] = useState({
         lastName: '',
-        error: false
+        error: true
     })
     const [phone, setPhone] = useState({
         phone: 0,
-        error: false
+        error: true
     })
     const [number, setNumber] = useState({
         number: 0,
-        error: false
+        error: true
     })
     const [checkedShip, setCheckedShip] = useState(true)
     const [email, setEmail] = useState({
         email: '',
-        error: false
+        error: true
     })
     const [country, setCountry] = useState({
         country: '',
-        error: false
+        error: true
     })
     const [city, setCity] = useState({
         city: '',
-        error: false
+        error: true
     })
     const [street, setStreet] = useState({
         street: '',
-        error: false
+        error: true
     })
     const [cardholder, setCardholder] = useState('')
     const [expiry, setExpiry] = useState({
         expiry: '',
-        error: false
+        error: true
     })
     const [cvc, setCVC] = useState({
         cvc: 0,
-        error: false
+        error: true
     })
+
+    const handleFirstName = useCallback((event) => {
+        setFirstName({...firstName, firstName: event.target.value})
+    },[firstName])
+
+    const handleLastName = useCallback((event) => {
+        setLastName({...lastName, lastName: event.target.value})
+    },[lastName])
+
+    const handleEmail = useCallback((event) => {
+        setEmail({...email, email: event.target.value})
+    },[email])
+
+    const handlePhone = useCallback((event) => {
+        setPhone({...phone, phone: event.target.value})
+    },[phone])
+
+    const handleCountry = useCallback((event) => {
+        setCountry({...country, country: event.target.value})
+    },[country])
+
+    const handleCity = useCallback((event) => {
+        setCity({...city, city: event.target.value})
+    },[city])
+
+    const handleStreet = useCallback((event) => {
+        setStreet({...street, street: event.target.value})
+    },[street])
+
+    const handleNumber = useCallback((event) => {
+        setNumber({...number, number: event.target.value})
+    },[number])
+
+    const handleCardholder = useCallback((event) => {
+        setCardholder(event.target.value)
+    },[])
+
+    const handleExpiry = useCallback((event) => {
+        setExpiry({...expiry, expiry: event.target.value})
+    },[expiry])
+
+    const handleCVC = useCallback((event) => {
+        setCVC({...cvc, cvc: event.target.value})
+    },[cvc])
 
     const sendingData = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
@@ -95,9 +138,7 @@ const FormCheckout = () => {
             ? setCVC({...cvc, error: true})
             : setCVC({...cvc, error: false})
 
-        console.log('fnObj ', firstName)
-        console.log('fn ', !firstName.error)
-        if(!firstName.error && !lastName.error && !phone.error && !email.error && !country.error && !city.error && !street.error && !expiry.error && !cvc.error) {
+        if(!firstName.error && !lastName.error && !phone.error && !email.error && !country.error && !expiry.error && !cvc.error) {
             fakeAPI({
                 firstName: firstName.firstName,
                 lastName: lastName.lastName,
@@ -112,7 +153,6 @@ const FormCheckout = () => {
                 cvc: cvc.cvc
             })
         }
-
     }
     return (
         <Form>
@@ -124,7 +164,7 @@ const FormCheckout = () => {
                 inputName={'firstName'}
                 inputType={'text'}
                 placeholder={'Alexandr'}
-                onChange={event => setFirstName({...firstName, firstName: event.target.value})}
+                onChange={handleFirstName}
                 error={'firstname должно содержать только буквы'}
                 displayError={firstName.error}
             />
@@ -134,7 +174,7 @@ const FormCheckout = () => {
                 inputName={'lastName'}
                 inputType={'text'}
                 placeholder={'Svetogor'}
-                onChange={event => setLastName({...lastName, lastName: event.target.value})}
+                onChange={handleLastName}
                 error={'lastname должно содержать только буквы'}
                 displayError={lastName.error}
             />
@@ -144,7 +184,7 @@ const FormCheckout = () => {
                 inputName={'phone'}
                 inputType={'tel'}
                 placeholder={'Введите последние 9 цифр'}
-                onChange={event => setPhone({...phone, phone: event.target.value})}
+                onChange={handlePhone}
                 error={'введите последние 9 цифр'}
                 displayError={phone.error}
             />
@@ -154,7 +194,7 @@ const FormCheckout = () => {
                 inputName={'email'}
                 inputType={'email'}
                 placeholder={'sasha.svetogor@gmail.com'}
-                onChange={event => setEmail({...email, email: event.target.value})}
+                onChange={handleEmail}
                 error={'неккоректный email'}
                 displayError={email.error}
             />
@@ -168,7 +208,7 @@ const FormCheckout = () => {
                 inputName={'country'}
                 inputType={'text'}
                 placeholder={'Belarus'}
-                onChange={event => setCountry({...country, country: event.target.value})}
+                onChange={handleCountry}
                 error={'country должно содержать только буквы'}
                 displayError={country.error}
             />
@@ -178,7 +218,7 @@ const FormCheckout = () => {
                 inputName={'city'}
                 inputType={'text'}
                 placeholder={'Minsk'}
-                onChange={event => setCity(event.target.value)}
+                onChange={handleCity}
             />
             <FormGroup
                 labelName={'street'}
@@ -186,7 +226,7 @@ const FormCheckout = () => {
                 inputName={'street'}
                 inputType={'text'}
                 placeholder={'Geroev 120 divizii'}
-                onChange={event => setStreet(event.target.value)}
+                onChange={handleStreet}
             />
             <Text size={24} marginBottom={24}>Payment details</Text>
             <Radio name={'payment'}>Credit card</Radio>
@@ -196,7 +236,7 @@ const FormCheckout = () => {
                     labelText={'Number'}
                     inputName={'number'}
                     inputType={'number'}
-                    onChange={event => setNumber({...number, number: event.target.value})}
+                    onChange={handleNumber}
                     error={'неккоректно введены данные(16 цифр)'}
                     displayError={number.error}
                 />
@@ -205,14 +245,14 @@ const FormCheckout = () => {
                     labelText={'Card Holder'}
                     inputName={'cardholder'}
                     inputType={'text'}
-                    onChange={e => setCardholder(e.target.value)}
+                    onChange={handleCardholder}
                 />
                 <FormGroup
                     labelName={'expiry'}
                     labelText={'Expiry Date'}
                     inputName={'expiry'}
                     inputType={'date'}
-                    onChange={event => setExpiry({...expiry, expiry: event.target.value})}
+                    onChange={handleExpiry}
                     error={'неккоректно введены данные'}
                     displayError={expiry.error}
                 />
@@ -222,11 +262,10 @@ const FormCheckout = () => {
                     inputName={'cvc'}
                     inputType={'number'}
                     placeholder={'123'}
-                    onChange={event => setCVC({...cvc, cvc: event.target.value})}
+                    onChange={handleCVC}
                     error={'неккоректно введены данные(3 цифры)'}
                     displayError={cvc.error}
                 />
-
             <Button
                 onClick={sendingData}
                 prl={140}
@@ -243,4 +282,4 @@ const FormCheckout = () => {
     );
 };
 
-export default FormCheckout;
+export default React.memo(FormCheckout);

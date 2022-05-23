@@ -38,12 +38,12 @@ const cardsReducer =(state = initialState,{ payload, type }: TCardActionTypes): 
         case CHANGE_CARD_STATUS_BASKET:
             return {
                 ...state,
-                cards: state.cards.map(card => card.id === payload.id ? {...card, inBasket: !card.inBasket} : {...card})
+                cards: state.cards.map(card => card.id === payload.id ? { ...card, inBasket: !card.inBasket } : { ...card })
             }
         case CHANGE_CARD_STATUS_WISHLIST:
             return {
                 ...state,
-                cards: state.cards.map(card => card.id === payload.id ? {...card, inWishlist: !card.inWishlist} : {...card})
+                cards: state.cards.map(card => card.id === payload.id ? { ...card, inWishlist: !card.inWishlist } : { ...card })
             }
         default:
             return state

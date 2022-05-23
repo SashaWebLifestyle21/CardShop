@@ -34,7 +34,6 @@ interface IDecreaseCardAmountAction {
 export type TCardBasketActionTypes = IAddCardBasketAction | IRemoveCardBasketAction | IIncreaseCardAmountAction | IDecreaseCardAmountAction
 
 export const addCardBasket = (card: ICardsBasket): TCardBasketActionTypes => {
-
     return {
         type: ADD_CARD_BASKET,
         payload: {
@@ -42,6 +41,7 @@ export const addCardBasket = (card: ICardsBasket): TCardBasketActionTypes => {
         }
     }
 }
+
 export const removeCardBasket = (card: ICardsBasket): TCardBasketActionTypes => {
     return {
         type: REMOVE_CARD_FROM_BASKET,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FlexBox } from "../common-components/FlexBox/FlexBox";
 import { Text } from "../common-components/Text/Text";
 import { Price } from "../common-components/Price/Price";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { addCardBasket } from "../../redux/actions/basketActionCreator/basketActionCreator";
 import { COLOR } from "../../constants/color-constants";
 import { Button } from "../common-components/Button/Button";
-import {changeStatusInBasket} from "../../redux/actions/wishlistActionCreator/wishlistActionCreator";
+import { changeStatusInBasket } from "../../redux/actions/wishlistActionCreator/wishlistActionCreator";
 
 interface IAboutCardProps {
     card: ICards
@@ -17,17 +17,17 @@ interface IAboutCardProps {
 const AboutCard = ({ card }: IAboutCardProps) => {
     const [count, setCount] = useState(1)
 
-    const increase = () => {
+    const increase = useCallback(() => {
         setCount(count + 1);
-    }
+    }, [count])
 
-    const decrease = () => {
+    const decrease = useCallback(() => {
         count > 1 && setCount(count - 1);
-    }
+    }, [count])
 
     const dispatch = useDispatch()
 
-    const handleAddCardBasket = () => {
+    const handleAddCardBasket = useCallback(() => {
         dispatch(changeCardStatusBasket(card.id))
         dispatch(changeStatusInBasket(card.id))
         dispatch(addCardBasket(
@@ -37,7 +37,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
                 total: count * Number(card.price)
             }
         ))
-    }
+    }, [dispatch, card, count])
 
     return (
         <FlexBox justifyContent={'space-between'} flexDirection={'column'} width={394} alignItems={'baseline'}>
@@ -49,7 +49,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
                 <Text>out of Stock</Text>
                 :
                 <FlexBox justifyContent={'space-between'} width={394} mediaFlexDirection={'column'} mediaRowGap={10}>
-                    <CounterCard handleDecrease={decrease} handleIncrease={increase} count={count}/>
+                    <CounterCard handleDecrease={decrease} handleIncrease={increase} count={count} />
                     <Button
                         disabled={card.inBasket}
                         backgroundColor={COLOR.primary}
@@ -63,9 +63,8 @@ const AboutCard = ({ card }: IAboutCardProps) => {
                     </Button>
                 </FlexBox>
             }
-
         </FlexBox>
     );
 };
 
-export default AboutCard;
+export default React.memo(AboutCard);

@@ -8,7 +8,6 @@ interface IRadio {
     onChange?: () => void
 }
 
-
 const RadioWrapper = styled.div`
   display: inline-block;
 `;

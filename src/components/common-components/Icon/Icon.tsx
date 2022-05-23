@@ -44,4 +44,4 @@ const Icon = ({ name, color, size, transform }: IIcon) => {
     );
 };
 
-export default Icon;
+export default React.memo(Icon);

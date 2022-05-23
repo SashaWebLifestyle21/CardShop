@@ -23,7 +23,7 @@ const wishlistReducer = (state = initialStateWishlist, { payload, type }: TCardW
         case REMOVE_CARD_FROM_WISHLIST:
             return state.filter(card => card.id !== payload.id)
         case CHANGE_STATUS_INBASKET:
-            return state.map(card => card.id === payload.id ? {...card, inBasket: !card.inBasket} : {...card})
+            return state.map(card => card.id === payload.id ? { ...card, inBasket: !card.inBasket } : { ...card })
         default:
             return state
     }

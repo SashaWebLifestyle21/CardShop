@@ -2,9 +2,10 @@ import styled from "styled-components";
 import Icon from "../Icon/Icon";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Link } from "react-router-dom";
+import { IIconsHeader } from "../../../constants/iconsHeader";
 
 interface IIconsWrapper{
-    icons: Array<any>
+    icons: Array<IIconsHeader>
     width?: number,
     colGap?: number
 }

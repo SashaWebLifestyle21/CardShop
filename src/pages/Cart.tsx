@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useCallback } from 'react';
 import Header from "../containers/Header/Header";
 import { Wrapper } from "../components/common-components/Wrapper/Wrapper";
 import { useDispatch } from "react-redux";
@@ -19,26 +19,26 @@ import {
     removeCardBasket
 } from '../redux/actions/basketActionCreator/basketActionCreator';
 import TableBasket from "../containers/TableBasket/TableBasket";
-import {changeCardStatusBasket} from "../redux/actions/cardsActionCreator/cardsActionCreator";
-import {changeStatusInBasket} from "../redux/actions/wishlistActionCreator/wishlistActionCreator";
+import { changeCardStatusBasket } from "../redux/actions/cardsActionCreator/cardsActionCreator";
+import { changeStatusInBasket } from "../redux/actions/wishlistActionCreator/wishlistActionCreator";
 
 const Cart = () => {
     const basket = useTypedSelector(basketSelector)
     const dispatch = useDispatch()
 
-    const removeCard = (card: ICardsBasket) => {
+    const removeCard = useCallback((card: ICardsBasket) => {
         dispatch(removeCardBasket(card))
         dispatch(changeCardStatusBasket(card.id))
         dispatch(changeStatusInBasket(card.id))
-    }
+    },[dispatch])
 
-    const increaseCard = (card: ICardsBasket) => {
+    const increaseCard = useCallback((card: ICardsBasket) => {
         dispatch(increaseCardAmount(card))
-    }
+    }, [dispatch])
 
-    const decreaseCard = (card: ICardsBasket) => {
+    const decreaseCard = useCallback((card: ICardsBasket) => {
         dispatch(decreaseCardAmount(card))
-    }
+    },[dispatch])
 
     return (
         <>

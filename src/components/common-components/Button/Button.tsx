@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from "styled-components";
 import { themes } from "../../../constants/themes";
 
@@ -25,7 +24,7 @@ export const Button = styled.button<IButton>`
   padding: ${props => props.ptb || 12}px ${props => props.prl || 20}px;
   display: block;
   border: none;
-  border: ${props => props.borderColor ? `1px solid ${props.borderColor}` : ''};
+  border: ${props => props.borderColor ? `1px solid ${props.borderColor}` : "none"};
   color: ${props => props.color || themes.colors.white};
   background-color: ${props => props.disabled ? themes.colors.lightGrey : props.backgroundColor || 'transparent'};
   border-radius: 5px;

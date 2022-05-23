@@ -19,4 +19,4 @@ const CardShop = ({ card }: ICardShop) => {
     );
 };
 
-export default CardShop;
+export default React.memo(CardShop);

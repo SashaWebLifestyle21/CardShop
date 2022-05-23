@@ -42,4 +42,4 @@ const FormGroup = ({ labelName, labelText, inputType, inputName, onChange, borde
     );
 };
 
-export default FormGroup;
+export default React.memo(FormGroup);

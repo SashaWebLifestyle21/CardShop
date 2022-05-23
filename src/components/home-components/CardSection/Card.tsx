@@ -49,4 +49,4 @@ const Card = ({ card }: ICardProps) => {
     );
 };
 
-export default Card;
+export default React.memo(Card);
