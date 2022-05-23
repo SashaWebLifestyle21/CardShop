@@ -33,7 +33,7 @@ const TableBasket = ({ cards, increaseCard, decreaseCard, removeCard }: ITableBa
                                 {card.title}
                             </FlexBox>
                         </TableBodyItemCol>
-                       <TableBodyItemCol>{card.price}</TableBodyItemCol>
+                       <TableBodyItemCol>${card.price}</TableBodyItemCol>
                        <TableBodyItemCol>
                            <CounterCard
                                count={card.amount}

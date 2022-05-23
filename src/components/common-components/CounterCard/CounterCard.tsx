@@ -34,6 +34,7 @@ const CounterCard = ({ handleIncrease, handleDecrease, count, marginAuto, card }
                 paddingLeft={11}
                 paddingRight={11}
                 height={42}
+                mediaWidth={30}
             >
                 {count}
             </Box>

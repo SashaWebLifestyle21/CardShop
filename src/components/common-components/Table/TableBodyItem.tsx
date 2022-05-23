@@ -8,4 +8,11 @@ export const TableBodyItemCol = styled.td`
   padding: 5px;
   text-align: center;
   border-spacing: 0;
+
+  @media ${props => props.theme.media.tablet} {
+    font-size: 14px;
+  }
+  @media ${props => props.theme.media.phone} {
+    font-size: 10px;
+  }
 `

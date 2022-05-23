@@ -16,11 +16,13 @@ interface IBox {
     isHovered?: boolean
     backgroundColor?: string
     color?: string
+    mediaWidth?: number
 }
 
 export const Box = styled.div<IBox>`
   display: block;
-  width: ${props => props.width}px;
+  max-width: ${props => props.width}px;
+  width: 100%;
   height: ${props => props.height}px;
   margin-top: ${props => props.marginTop || 0}px;
   margin-bottom: ${props => props.marginBottom || 0}px;
@@ -33,4 +35,11 @@ export const Box = styled.div<IBox>`
   margin: ${props => props.marginAuto ? '0 auto' : ''};
   background-color: ${props => props.backgroundColor || 'transparent'};
   color: ${props => props.color || themes.colors.primary};
+
+  @media ${props => props.theme.media.tablet} {
+    width: ${props => props.mediaWidth}%;
+  }
+  @media ${props => props.theme.media.phone} {
+    width: ${props => props.mediaWidth}%;
+  }
 `

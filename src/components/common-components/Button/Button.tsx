@@ -47,5 +47,14 @@ export const Button = styled.button<IButton>`
     background-color: ${props => !props.disabled ? props.hoverBackground : ''};
     color: ${props => props.hoverColor};
   }
+  
+  @media ${props => props.theme.media.tablet} {
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  @media ${props => props.theme.media.phone} {
+    padding: 8px 5px;
+    font-size: 12px;
+  }
 `
 

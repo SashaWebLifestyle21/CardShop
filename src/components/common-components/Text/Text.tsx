@@ -25,6 +25,7 @@ export const Text = styled.p<IText>`
   margin-top: ${props => props.marginTop || 0}px;
   width: ${props => props.width}px;
   display: ${props => props.display || 'block'};
+  
   &:hover{
     color: ${props => props.hover}
   }

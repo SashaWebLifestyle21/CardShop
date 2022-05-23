@@ -11,7 +11,7 @@ interface ICardInfoProps {
 
 const CardInfo = ({ card }: ICardInfoProps) => {
     return (
-        <Box width={788} height={288} marginAuto>
+        <Box width={788} marginAuto paddingLeft={16} paddingRight={16}>
             <FlexBox justifyContent={"center"}>
                 <Image src={card.image} alt={card.title} width={288} height={288} />
                 <AboutCard card={card} />

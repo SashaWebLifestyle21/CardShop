@@ -9,7 +9,6 @@ import { COLOR } from "../../constants/color-constants";
 import {
     validCVC,
     validEmail, validExpiry,
-    validLetterAndNumber,
     validNumberCreditCard,
     validOnlyLetter,
     validPhone

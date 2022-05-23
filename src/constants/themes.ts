@@ -19,8 +19,8 @@ export const themes = {
         bold: 700
     },
     media: {
-        phone: '(max-width: 600px)',
-        tabletPortrait: '(max-width: 900px)',
+        phone: '(max-width: 425px)',
+        tablet: '(max-width: 768px) and (min-width: 425px)',
         tabletLandscape: '(max-width: 1200px)',
         desktop: '(max-width: 1800)',
         bigDesktop: '(max-width: 2400px)'

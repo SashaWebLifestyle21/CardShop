@@ -52,7 +52,7 @@ const TableWishlist = ({ cards, removeCard }: ITableWishlist) => {
                                 {card.title}
                             </FlexBox>
                         </TableBodyItemCol>
-                        <TableBodyItemCol>{card.price}</TableBodyItemCol>
+                        <TableBodyItemCol>${card.price}</TableBodyItemCol>
                         <TableBodyItemCol>{card.stock}</TableBodyItemCol>
                         <TableBodyItemCol>
                             <Button

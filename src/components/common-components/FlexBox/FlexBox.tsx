@@ -12,6 +12,8 @@ export interface IFlexBox {
     marginAuto?: boolean
     columnGap?: number
     position?: TPositionTypes
+    mediaFlexDirection?: TFlexBoxFlexDirectionTypes
+    mediaRowGap?: number
 }
 
 type TFlexBoxjustifyContentTypes =
@@ -50,4 +52,12 @@ export const FlexBox = styled.div<IFlexBox>`
   height: ${props => props.height}px;
   column-gap: ${props => props.columnGap}px;
   position: ${props => props.position || 'static'};
+  @media ${props => props.theme.media.tablet} {
+    flex-direction: ${p => p.mediaFlexDirection};
+    row-gap: ${props => props.mediaRowGap}px;
+  }
+  @media ${props => props.theme.media.phone} {
+    flex-direction: ${p => p.mediaFlexDirection};
+    row-gap: ${props => props.mediaRowGap}px;
+  }
 `

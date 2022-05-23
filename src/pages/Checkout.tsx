@@ -27,7 +27,7 @@ const Checkout = () => {
     return (
         <>
             <Header img={'../Images/checkoutback.jpg'} title={'Checkout'}/>
-            <FlexBox>
+            <FlexBox mediaFlexDirection={'column'} padding={16}>
                 <Wrapper>
                     <FormCheckout />
                 </Wrapper>

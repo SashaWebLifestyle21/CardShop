@@ -64,7 +64,7 @@ const Label = styled.label`
 const Radio = ({ name, children, checked, onChange }: IRadio) => (
     <RadioWrapper>
         <Label>
-            <Input name={name} type="radio" checked={checked} onChange={onChange}/>
+            <Input name={name} type="radio" checked={checked} onChange={onChange} />
             <Mark />
             {children}
         </Label>

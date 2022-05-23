@@ -48,7 +48,7 @@ const AboutCard = ({ card }: IAboutCardProps) => {
             {card.stock === 'out of Stock' ?
                 <Text>out of Stock</Text>
                 :
-                <FlexBox justifyContent={'space-between'} width={394}>
+                <FlexBox justifyContent={'space-between'} width={394} mediaFlexDirection={'column'} mediaRowGap={10}>
                     <CounterCard handleDecrease={decrease} handleIncrease={increase} count={count}/>
                     <Button
                         disabled={card.inBasket}
