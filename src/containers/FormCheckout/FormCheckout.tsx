@@ -18,28 +18,34 @@ import { fakeAPI } from "../../api/api-utils/api-utils";
 const FormCheckout = () => {
     const [firstName, setFirstName] = useState({
         firstName: '',
-        error: true
+        error: true,
+        dirty: false
     })
     const [lastName, setLastName] = useState({
         lastName: '',
-        error: true
+        error: true,
+        dirty: false
     })
     const [phone, setPhone] = useState({
         phone: 0,
-        error: true
+        error: true,
+        dirty: false
     })
     const [number, setNumber] = useState({
         number: 0,
-        error: true
+        error: true,
+        dirty: false
     })
     const [checkedShip, setCheckedShip] = useState(true)
     const [email, setEmail] = useState({
         email: '',
-        error: true
+        error: true,
+        dirty: false
     })
     const [country, setCountry] = useState({
         country: '',
-        error: true
+        error: true,
+        dirty: false
     })
     const [city, setCity] = useState({
         city: '',
@@ -52,31 +58,72 @@ const FormCheckout = () => {
     const [cardholder, setCardholder] = useState('')
     const [expiry, setExpiry] = useState({
         expiry: '',
-        error: true
+        error: true,
+        dirty: false
     })
     const [cvc, setCVC] = useState({
         cvc: 0,
-        error: true
+        error: true,
+        dirty: false
     })
 
+    const blurHandler = (e: any) => {
+        switch (e.target.name) {
+            case 'firstName':
+                setFirstName({...firstName, dirty: true})
+                break
+            case 'lastName':
+                setLastName({...lastName, dirty: true})
+                break
+            case 'email':
+                setEmail({...email, dirty: true})
+                break
+            case 'phone':
+                setPhone({...phone, dirty: true})
+                break
+            case 'country':
+                setCountry({...country, dirty: true})
+                break
+            case 'number':
+                setNumber({...number, dirty: true})
+                break
+            case 'expiry':
+                setExpiry({...expiry, dirty: true})
+                break
+            case 'cvc':
+                setCVC({...cvc, dirty: true})
+                break
+        }
+    }
+
     const handleFirstName = useCallback((event) => {
-        setFirstName({...firstName, firstName: event.target.value})
+        !validOnlyLetter(event.target.value)
+            ? setFirstName({...firstName, firstName: event.target.value, error: true})
+            : setFirstName({...firstName, firstName: event.target.value, error: false})
     },[firstName])
 
     const handleLastName = useCallback((event) => {
-        setLastName({...lastName, lastName: event.target.value})
+        !validOnlyLetter(event.target.value)
+            ? setLastName({...lastName, lastName: event.target.value, error: true})
+            : setLastName({...lastName, lastName: event.target.value, error: false})
     },[lastName])
 
     const handleEmail = useCallback((event) => {
-        setEmail({...email, email: event.target.value})
+        !validEmail(event.target.value)
+            ? setEmail({...email, email: event.target.value, error: true})
+            : setEmail({...email, email: event.target.value, error: false})
     },[email])
 
     const handlePhone = useCallback((event) => {
-        setPhone({...phone, phone: event.target.value})
+        !validPhone(event.target.value.toString())
+            ? setPhone({...phone, phone: event.target.value, error: true})
+            : setPhone({...phone, phone: event.target.value, error: false})
     },[phone])
 
     const handleCountry = useCallback((event) => {
-        setCountry({...country, country: event.target.value})
+        !validOnlyLetter(event.target.value)
+            ? setCountry({...country, country: event.target.value, error: true})
+            : setCountry({...country, country: event.target.value, error: false})
     },[country])
 
     const handleCity = useCallback((event) => {
@@ -88,7 +135,9 @@ const FormCheckout = () => {
     },[street])
 
     const handleNumber = useCallback((event) => {
-        setNumber({...number, number: event.target.value})
+        !validNumberCreditCard(event.target.value.toString())
+            ? setNumber({...number, number: event.target.value, error: true})
+            : setNumber({...number, number: event.target.value, error: false})
     },[number])
 
     const handleCardholder = useCallback((event) => {
@@ -96,47 +145,19 @@ const FormCheckout = () => {
     },[])
 
     const handleExpiry = useCallback((event) => {
-        setExpiry({...expiry, expiry: event.target.value})
+        !validExpiry(event.target.value)
+            ? setExpiry({...expiry, expiry: event.target.value, error: true})
+            : setExpiry({...expiry, expiry: event.target.value, error: false})
     },[expiry])
 
     const handleCVC = useCallback((event) => {
-        setCVC({...cvc, cvc: event.target.value})
+        !validCVC(event.target.value.toString())
+            ? setCVC({...cvc, cvc: event.target.value, error: true})
+            : setCVC({...cvc, cvc: event.target.value, error: false})
     },[cvc])
 
     const sendingData = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-
-        !validOnlyLetter(firstName.firstName)
-            ? setFirstName({...firstName, error: true})
-            : setFirstName({...firstName, error: false})
-
-        !validOnlyLetter(lastName.lastName)
-            ? setLastName({...lastName, error: true})
-            : setLastName({...lastName, error: false})
-
-        !validPhone(phone.phone.toString())
-            ? setPhone({...phone, error: true})
-            : setPhone({...phone, error: false})
-
-        !validEmail(email.email)
-            ? setEmail({...email, error: true})
-            : setEmail({...email, error: false})
-
-        !validNumberCreditCard(number.number.toString())
-            ? setNumber({...number, error: true})
-            : setNumber({...number, error: false})
-
-        !validOnlyLetter(country.country)
-            ? setCountry({...country, error: true})
-            : setCountry({...country, error: false})
-
-        !validExpiry(expiry.expiry)
-            ? setExpiry({...expiry, error: true})
-            : setExpiry({...expiry, error: false})
-
-        !validCVC(cvc.cvc.toString())
-            ? setCVC({...cvc, error: true})
-            : setCVC({...cvc, error: false})
 
         if(!firstName.error && !lastName.error && !phone.error && !email.error && !country.error && !expiry.error && !cvc.error) {
             fakeAPI({
@@ -152,6 +173,14 @@ const FormCheckout = () => {
                 expiry: expiry.expiry,
                 cvc: cvc.cvc
             })
+        } else {
+            setFirstName({...firstName, dirty: true})
+            setLastName({...lastName, dirty: true})
+            setPhone({...phone, dirty: true})
+            setEmail({...email, dirty: true})
+            setCountry({...country, dirty: true})
+            setExpiry({...expiry, dirty: true})
+            setCVC({...cvc, dirty: true})
         }
     }
     return (
@@ -163,40 +192,48 @@ const FormCheckout = () => {
                 labelText={'First Name'}
                 inputName={'firstName'}
                 inputType={'text'}
+                value={firstName.firstName}
                 placeholder={'Alexandr'}
                 onChange={handleFirstName}
+                onBlur={blurHandler}
                 error={'firstname должно содержать только буквы'}
-                displayError={firstName.error}
+                displayError={firstName.error && firstName.dirty}
             />
             <FormGroup
                 labelName={'lastName'}
                 labelText={'Last Name'}
                 inputName={'lastName'}
                 inputType={'text'}
+                value={lastName.lastName}
                 placeholder={'Svetogor'}
                 onChange={handleLastName}
+                onBlur={blurHandler}
                 error={'lastname должно содержать только буквы'}
-                displayError={lastName.error}
+                displayError={lastName.error && lastName.dirty}
             />
             <FormGroup
                 labelName={'phone'}
                 labelText={'Phone(+375)'}
                 inputName={'phone'}
                 inputType={'tel'}
+                value={phone.phone}
                 placeholder={'Введите последние 9 цифр'}
                 onChange={handlePhone}
+                onBlur={blurHandler}
                 error={'введите последние 9 цифр'}
-                displayError={phone.error}
+                displayError={phone.error && phone.dirty}
             />
             <FormGroup
                 labelName={'email'}
                 labelText={'Email'}
                 inputName={'email'}
                 inputType={'email'}
+                value={email.email}
                 placeholder={'sasha.svetogor@gmail.com'}
                 onChange={handleEmail}
+                onBlur={blurHandler}
                 error={'неккоректный email'}
-                displayError={email.error}
+                displayError={email.error && email.dirty}
             />
             <Text size={24} marginBottom={24}>Shipping</Text>
             <Radio name={'shipping'} onChange={() => setCheckedShip(!checkedShip)} checked={checkedShip}>Next day delivery</Radio>
@@ -207,16 +244,19 @@ const FormCheckout = () => {
                 labelText={'Country'}
                 inputName={'country'}
                 inputType={'text'}
+                value={country.country}
                 placeholder={'Belarus'}
                 onChange={handleCountry}
+                onBlur={blurHandler}
                 error={'country должно содержать только буквы'}
-                displayError={country.error}
+                displayError={country.error && country.dirty}
             />
             <FormGroup
                 labelName={'city'}
                 labelText={'City'}
                 inputName={'city'}
                 inputType={'text'}
+                value={city.city}
                 placeholder={'Minsk'}
                 onChange={handleCity}
             />
@@ -225,6 +265,7 @@ const FormCheckout = () => {
                 labelText={'Street'}
                 inputName={'street'}
                 inputType={'text'}
+                value={street.street}
                 placeholder={'Geroev 120 divizii'}
                 onChange={handleStreet}
             />
@@ -236,9 +277,11 @@ const FormCheckout = () => {
                     labelText={'Number'}
                     inputName={'number'}
                     inputType={'number'}
+                    value={number.number}
                     onChange={handleNumber}
+                    onBlur={blurHandler}
                     error={'неккоректно введены данные(16 цифр)'}
-                    displayError={number.error}
+                    displayError={number.error && number.dirty}
                 />
                 <FormGroup
                     labelName={'cardholder'}
@@ -252,9 +295,11 @@ const FormCheckout = () => {
                     labelText={'Expiry Date'}
                     inputName={'expiry'}
                     inputType={'date'}
+                    value={expiry.expiry}
                     onChange={handleExpiry}
+                    onBlur={blurHandler}
                     error={'неккоректно введены данные'}
-                    displayError={expiry.error}
+                    displayError={expiry.error && expiry.dirty}
                 />
                 <FormGroup
                     labelName={'cvc'}
@@ -263,8 +308,9 @@ const FormCheckout = () => {
                     inputType={'number'}
                     placeholder={'123'}
                     onChange={handleCVC}
+                    onBlur={blurHandler}
                     error={'неккоректно введены данные(3 цифры)'}
-                    displayError={cvc.error}
+                    displayError={cvc.error && cvc.dirty}
                 />
             <Button
                 onClick={sendingData}

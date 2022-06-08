@@ -11,14 +11,16 @@ interface IFormGroup {
     labelText: string
     inputName: string
     inputType: TInputTypes
-    onChange?: (e: any) => void
+    value?: string | number
+    onChange?: (e: React.FormEvent<HTMLInputElement>) => void
+    onBlur?: (e: React.FormEvent<HTMLInputElement>) => void
     borderColor?: string
     placeholder?: string
     error?: string
     displayError?: boolean
 }
 
-const FormGroup = ({ labelName, labelText, inputType, inputName, onChange, borderColor, placeholder, error, displayError }: IFormGroup) => {
+const FormGroup = ({ labelName, labelText, inputType, inputName, onChange, borderColor, placeholder, error, displayError, onBlur, value }: IFormGroup) => {
     return (
         <Box marginBottom={16}>
             <FlexBox columnGap={18} justifyContent={'space-between'}>
@@ -26,7 +28,9 @@ const FormGroup = ({ labelName, labelText, inputType, inputName, onChange, borde
                 <Input
                     type={inputType}
                     name={inputName}
+                    value={value}
                     onChange={onChange}
+                    onBlur={onBlur}
                     borderColor={borderColor}
                     placeholder={placeholder}
                 />

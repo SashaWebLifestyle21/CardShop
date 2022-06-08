@@ -1,19 +1,23 @@
 export interface IIconsHeader {
     id: number
-    name: string
+    name: string,
+    href: string
 }
 
 export const iconsHeader = [
     {
         id: 1,
-        name: 'search'
+        name: 'search',
+        href: 'search'
     },
     {
         id: 2,
-        name: 'wishlist'
+        name: 'wishlist',
+        href: 'wishlist'
     },
     {
         id: 3,
-        name: 'cart'
+        name: 'cart',
+        href: 'cart'
     }
 ]
