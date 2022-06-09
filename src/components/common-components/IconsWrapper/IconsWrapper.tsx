@@ -3,10 +3,11 @@ import Icon from "../Icon/Icon";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Link } from "react-router-dom";
 import { IIconsHeader } from "../../../constants/iconsHeader";
+import { IIconsFooter } from "../../../constants/iconsFooter";
 
 interface IIconsWrapper{
-    icons: Array<IIconsHeader>
-    width?: number,
+    icons: IIconsHeader[] | IIconsFooter[]
+    width?: number
     colGap?: number
 }
 
@@ -24,7 +25,7 @@ const IconsWrapper = ({ icons, width, colGap }: IIconsWrapper) => {
     return (
         <IconsWrap width={width} colGap={colGap}>
             {icons.map(icon => {
-                return <Link to={`/${icon.name}`} key={icon.name + icon.id}>
+                return <Link to={`/${icon.href}`} key={icon.name + icon.id}>
                     <Icon key={icon.id + icon.name} name={icon.name} size={20} />
                 </Link>
             })}

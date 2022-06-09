@@ -5,6 +5,7 @@ interface IInput {
     type: TInputTypes
     name?: string
     onChange?: (e: React.FormEvent<HTMLInputElement>) => void
+    value?: string | number
     borderColor?: string
     placeholder?: string
 }
