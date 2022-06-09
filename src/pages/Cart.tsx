@@ -74,6 +74,7 @@ const Cart = () => {
                             fontSize={18}
                             borderColor={COLOR.primary}
                             marginBottom={64}
+                            disabled={basket.cards.length === 0}
                         >
                             Proceed to checkout
                         </Button>
